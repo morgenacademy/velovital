@@ -11,3 +11,5 @@ build/
 coverage/
 .env
 .env.*
+*.pages
+.claude/
