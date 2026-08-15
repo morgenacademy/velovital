@@ -1,0 +1,6 @@
+# De repo-root bevat ook subsidieaanvragen en begrotingen. Daarom bouwt deze
+# stap een dist/ met alleen de sitebestanden, zodat die documenten niet publiek
+# op velovital.nl komen te staan.
+[build]
+  publish = "dist"
+  command = "mkdir -p dist && cp *.html *.css *.js dist/ && cp -R assets dist/"
