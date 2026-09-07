@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiets mee met Kiki van Fietsen = Leven - Velo Vital</title>
+<meta name="description" content="Save the date: fiets mee met Kiki van Fietsen = Leven tijdens een laagdrempelige Velo Vital ochtend in het eerste weekend van oktober.">
+<meta property="og:title" content="Fiets mee met Kiki van Fietsen = Leven">
+<meta property="og:description" content="Pre-inschrijven voor een laagdrempelige Velo Vital ochtend met rustige groepsrit, fietscheck, tips van Kiki en koffie na afloop.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Montserrat:ital,wght@0,300..800;1,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<header class="nav scrolled" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Velo Vital home">
+      <span class="nav__logo-mark">Velo</span><span class="nav__logo-mark nav__logo-mark--it">Vital</span>
+    </a>
+    <nav class="nav__links" aria-label="Hoofdmenu">
+      <a href="index.html#agenda">Agenda</a>
+      <a href="index.html#opties">Hoe het werkt</a>
+      <a href="index.html#lidmaatschap">Lidmaatschap</a>
+      <a href="verhalen.html">Verhalen</a>
+      <a href="vakanties.html">Fietsvakanties</a>
+    </nav>
+    <a href="#preinschrijven" class="btn btn--sm nav__cta">Pre-inschrijven</a>
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="event event--landing" id="kiki-event">
+    <div class="event__inner">
+      <div class="event__copy">
+        <a href="index.html#agenda" class="story-card__cta reveal">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Terug naar agenda
+        </a>
+        <span class="eyebrow reveal" style="--d:.06s">Save the date</span>
+        <h1 class="hero__title reveal" style="--d:.1s">Fiets mee met <em>Kiki</em></h1>
+        <p class="event__date reveal" style="--d:.14s">Zaterdag 3 of zondag 4 oktober 2026</p>
+        <p class="reveal" style="--d:.18s">
+          Kiki van Fietsen = Leven is groot op Instagram en laat precies zien hoe leuk en vrij fietsen kan voelen.
+          Samen met Velo Vital organiseert ze een ochtend voor vrouwen die zin hebben om te fietsen, maar niet alleen willen starten.
+        </p>
+        <p class="reveal" style="--d:.22s">
+          Verwacht een warme ontvangst, korte fietscheck, rustige groepsrit, praktische tips van Kiki en koffie na afloop.
+          Je hoeft geen ervaring te hebben. En heb je geen fiets? Dan denken we met je mee.
+        </p>
+        <div class="event__tags reveal" style="--d:.26s" aria-label="Wat je kunt verwachten">
+          <span>Kiki van Fietsen = Leven</span>
+          <span>Rustige groepsrit</span>
+          <span>Geen prestatiedruk</span>
+          <span>Fiets regelen kan</span>
+        </div>
+      </div>
+
+      <form class="event__form reveal" style="--d:.18s" id="kikiEventForm" name="kiki-event-preinschrijving" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="kiki-event-preinschrijving">
+        <p class="event__bot" aria-hidden="true">
+          <label>Niet invullen <input name="bot-field"></label>
+        </p>
+        <h3 id="preinschrijven">Pre-inschrijven</h3>
+        <p>Laat je e-mailadres achter. Je hoort als eerste meer over dit event en over andere Velo Vital rides, clinics en plannen.</p>
+        <input type="email" name="email" placeholder="Je e-mailadres" aria-label="Je e-mailadres" required>
+
+        <fieldset class="event-toggle event-toggle--date">
+          <legend>Wanneer past jou het beste?</legend>
+          <div class="event-toggle__track">
+            <label>
+              <input type="radio" name="voorkeursdag" value="zaterdag-3-oktober" checked>
+              <span>Zaterdag</span>
+            </label>
+            <label>
+              <input type="radio" name="voorkeursdag" value="zondag-4-oktober">
+              <span>Zondag</span>
+            </label>
+            <label>
+              <input type="radio" name="voorkeursdag" value="maakt-niet-uit">
+              <span>Maakt niet uit</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="event-toggle">
+          <legend>Hoe kom je op de fiets?</legend>
+          <div class="event-toggle__track">
+            <label>
+              <input type="radio" name="fiets" value="eigen-fiets" checked>
+              <span>Ik kom met eigen fiets</span>
+            </label>
+            <label>
+              <input type="radio" name="fiets" value="fiets-regelen">
+              <span>Regel maar een fiets voor me</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label class="event__check">
+          <input type="checkbox" name="updates" checked>
+          <span>Mail me ook als Velo Vital iets anders organiseert dat bij mij past.</span>
+        </label>
+
+        <button type="submit" class="btn btn--lg btn--block magnetic">Zet me op de lijst
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="event__mini">Vrijblijvend. We mailen je over het Kiki-event en andere Velo Vital momenten die interessant kunnen zijn.</p>
+      </form>
+
+      <div class="event__success" id="kikiEventSuccess" hidden>
+        <div class="event__check-icon">
+          <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M5 13l4 4 10-11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Je staat op de pre-lijst</h3>
+        <p>We sturen je een bericht zodra de datum definitief is, en houden je op de hoogte van andere Velo Vital rides en events.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">Velo<em>Vital</em></span>
+      <p>Fietscommunity voor vrouwen in 's-Hertogenbosch en omgeving. Samen bewegen, samen groeien.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="index.html#agenda">Agenda</a>
+      <a href="index.html#opties">Hoe het werkt</a>
+      <a href="index.html#lidmaatschap">Lidmaatschap</a>
+      <a href="verhalen.html">Verhalen</a>
+      <a href="vakanties.html">Fietsvakanties</a>
+      <a href="index.html#join">Join the ride</a>
+    </nav>
+  </div>
+  <div class="footer__bar">
+    <span>© 2026 Velo Vital · velovital.nl</span>
+    <span>Stichting Velo Vital · KvK 60618167 · <a href="mailto:info@velovital.nl">info@velovital.nl</a></span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

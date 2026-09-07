@@ -28,11 +28,12 @@
   mobile.className = 'nav__mobile';
   mobile.setAttribute('aria-label', 'Mobiel menu');
   mobile.innerHTML = `
-    <a href="#opties">Hoe het werkt</a>
-    <a href="#lidmaatschap">Lidmaatschap</a>
-    <a href="#verhalen">Verhalen</a>
+    <a href="index.html#agenda">Agenda</a>
+    <a href="index.html#opties">Hoe het werkt</a>
+    <a href="index.html#lidmaatschap">Lidmaatschap</a>
+    <a href="verhalen.html">Verhalen</a>
     <a href="vakanties.html">Fietsvakanties</a>
-    <a href="#join" class="btn btn--lg">Join the ride</a>`;
+    <a href="index.html#join" class="btn btn--lg">Join the ride</a>`;
   document.body.appendChild(mobile);
   const toggleMenu = (open) => {
     const state = open ?? !mobile.classList.contains('open');
@@ -123,27 +124,52 @@
     });
   });
 
-  /* --- join form --- */
-  const form = document.getElementById('joinForm');
-  const success = document.getElementById('joinSuccess');
-  if (form) {
+  /* --- forms --- */
+  const encodeForm = (form) => new URLSearchParams(new FormData(form)).toString();
+  const handleForm = (form, success, requiredFields) => {
+    if (!form) return;
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const naam = form.naam.value.trim();
-      const email = form.email.value.trim();
-      const valid = naam && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+      const valid = requiredFields.every((field) => {
+        const input = form.elements[field];
+        if (!input) return true;
+        const value = input.value.trim();
+        return input.type === 'email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value) : Boolean(value);
+      });
       if (!valid) {
-        [form.naam, form.email].forEach((f) => {
-          if (!f.value.trim() || (f.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value))) {
+        requiredFields.forEach((field) => {
+          const f = form.elements[field];
+          if (!f) return;
+          const value = f.value.trim();
+          const fieldValid = f.type === 'email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value) : Boolean(value);
+          if (!fieldValid) {
             f.style.borderColor = '#fff';
             f.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 300 });
           }
         });
         return;
       }
-      form.hidden = true;
-      success.hidden = false;
-      success.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      const showSuccess = () => {
+        form.hidden = true;
+        if (success) {
+          success.hidden = false;
+          success.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+        }
+      };
+      if (form.dataset.netlify === 'true' && window.location.protocol !== 'file:') {
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encodeForm(form)
+        }).then(showSuccess).catch(() => {
+          form.submit();
+        });
+      } else {
+        showSuccess();
+      }
     });
-  }
+  };
+
+  handleForm(document.getElementById('kikiEventForm'), document.getElementById('kikiEventSuccess'), ['email']);
+  handleForm(document.getElementById('joinForm'), document.getElementById('joinSuccess'), ['naam', 'email']);
 })();
