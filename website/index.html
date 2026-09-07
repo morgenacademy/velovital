@@ -25,6 +25,7 @@
       <span class="nav__logo-mark">Velo</span><span class="nav__logo-mark nav__logo-mark--it">Vital</span>
     </a>
     <nav class="nav__links" aria-label="Hoofdmenu">
+      <a href="#agenda">Agenda</a>
       <a href="#opties">Hoe het werkt</a>
       <a href="#lidmaatschap">Lidmaatschap</a>
       <a href="verhalen.html">Verhalen</a>
@@ -90,6 +91,41 @@
     <span>F#CK TMRW <b>·</b> RIDE2DAY <b>·</b> SAMEN NIET ALLEEN <b>·</b> GEEN PRESTATIEDRUK <b>·</b> JOIN THE RIDE <b>·</b> F#CK TMRW <b>·</b> RIDE2DAY <b>·</b> SAMEN NIET ALLEEN <b>·</b> GEEN PRESTATIEDRUK <b>·</b> JOIN THE RIDE <b>·</b> </span>
   </div>
 </div>
+
+<!-- AGENDA -->
+<section class="agenda" id="agenda">
+  <div class="agenda__inner">
+    <div class="agenda__head reveal">
+      <span class="eyebrow">Agenda</span>
+      <h2>Dit komt eraan</h2>
+      <p>Rides, clinics en momenten om laagdrempelig aan te haken. Klik door als je alvast interesse wilt doorgeven.</p>
+    </div>
+    <div class="agenda__list">
+      <a href="kiki-fietsen-is-leven.html" class="agenda-card agenda-card--feature reveal" style="--d:.06s">
+        <span class="agenda-card__date">3 of 4 okt</span>
+        <div class="agenda-card__body">
+          <span class="agenda-card__label">Save the date</span>
+          <h3>Fiets mee met Kiki van Fietsen = Leven</h3>
+          <p>Een laagdrempelige ochtend met rustige groepsrit, fietscheck, tips van Kiki en koffie na afloop.</p>
+        </div>
+        <span class="agenda-card__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a href="#join" class="agenda-card reveal" style="--d:.12s">
+        <span class="agenda-card__date">Binnenkort</span>
+        <div class="agenda-card__body">
+          <span class="agenda-card__label">Community</span>
+          <h3>Kennismakingsritten</h3>
+          <p>Rustige ritten voor vrouwen die willen ontdekken of samen fietsen iets voor hen is.</p>
+        </div>
+        <span class="agenda-card__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- STATS -->
 <section class="stats" id="stats">
@@ -458,7 +494,11 @@
     <h2 class="reveal">Join the ride</h2>
     <p class="reveal" style="--d:.08s">Word <strong>gratis</strong> community member en rijd deze week nog mee. F#CK TMRW. Ride2day.</p>
 
-    <form class="join__form reveal" style="--d:.16s" id="joinForm" novalidate>
+    <form class="join__form reveal" style="--d:.16s" id="joinForm" name="join-the-ride" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="join-the-ride">
+      <p class="join__bot" aria-hidden="true">
+        <label>Niet invullen <input name="bot-field"></label>
+      </p>
       <div class="join__row">
         <input type="text" name="naam" placeholder="Je naam" aria-label="Je naam" required>
         <input type="email" name="email" placeholder="Je e-mailadres" aria-label="Je e-mailadres" required>
@@ -494,6 +534,7 @@
       <p>Fietscommunity voor vrouwen in 's-Hertogenbosch en omgeving. Samen bewegen, samen groeien.</p>
     </div>
     <nav class="footer__nav" aria-label="Footer">
+      <a href="#agenda">Agenda</a>
       <a href="#opties">Hoe het werkt</a>
       <a href="#lidmaatschap">Lidmaatschap</a>
       <a href="verhalen.html">Verhalen</a>
