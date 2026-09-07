@@ -156,12 +156,19 @@
           success.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
         }
       };
-      if (form.dataset.netlify === 'true' && window.location.protocol !== 'file:') {
+      const isLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+      if (form.dataset.netlify === 'true' && window.location.protocol !== 'file:' && !isLocalPreview) {
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: encodeForm(form)
-        }).then(showSuccess).catch(() => {
+        }).then((response) => {
+          if (response.ok) {
+            showSuccess();
+          } else {
+            form.submit();
+          }
+        }).catch(() => {
           form.submit();
         });
       } else {
