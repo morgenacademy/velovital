@@ -125,11 +125,22 @@
   });
 
   /* --- forms --- */
-  const encodeForm = (form) => new URLSearchParams(new FormData(form)).toString();
+  const encodeForm = (form) => {
+    const data = new URLSearchParams(new FormData(form));
+    data.set('form-name', form.name);
+    return data.toString();
+  };
   const handleForm = (form, success, requiredFields) => {
     if (!form) return;
-    form.addEventListener('submit', (e) => {
+    const error = document.createElement('p');
+    error.setAttribute('role', 'alert');
+    error.hidden = true;
+    form.appendChild(error);
+    let sending = false;
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (sending) return;
+      error.hidden = true;
       const valid = requiredFields.every((field) => {
         const input = form.elements[field];
         if (!input) return true;
@@ -156,23 +167,31 @@
           success.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
         }
       };
-      const isLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-      if (form.dataset.netlify === 'true' && window.location.protocol !== 'file:' && !isLocalPreview) {
-        fetch('/', {
+      const isLocalPreview = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname);
+      if (window.location.protocol === 'file:' || isLocalPreview) {
+        error.textContent = 'Dit is een voorbeeldweergave. Je inschrijving is niet verstuurd. Meld je aan op velovital.nl.';
+        error.hidden = false;
+        return;
+      }
+      const button = form.querySelector('[type="submit"]');
+      sending = true;
+      if (button) button.disabled = true;
+      form.setAttribute('aria-busy', 'true');
+      try {
+        const response = await fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: encodeForm(form)
-        }).then((response) => {
-          if (response.ok) {
-            showSuccess();
-          } else {
-            form.submit();
-          }
-        }).catch(() => {
-          form.submit();
         });
-      } else {
+        if (!response.ok) throw new Error('Submission failed');
         showSuccess();
+      } catch (err) {
+        error.textContent = 'Versturen is niet gelukt. Probeer het opnieuw of mail naar info@velovital.nl. Je gegevens staan nog in het formulier.';
+        error.hidden = false;
+      } finally {
+        sending = false;
+        if (button) button.disabled = false;
+        form.removeAttribute('aria-busy');
       }
     });
   };
