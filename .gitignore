@@ -13,3 +13,9 @@ coverage/
 .env.*
 *.pages
 .claude/
+
+# Alleen de website en bijbehorende Git-/publicatie-instellingen volgen.
+/*
+!/.gitignore
+!/netlify.toml
+!/website/
