@@ -1,0 +1,4 @@
+# Alleen website/ gaat live. De mappen subsidies/ en bronmateriaal/ blijven
+# daarmee buiten velovital.nl.
+[build]
+  publish = "website"

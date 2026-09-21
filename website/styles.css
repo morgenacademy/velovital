@@ -253,7 +253,7 @@ h1,h2,h3{font-family:var(--font-d);font-weight:500;line-height:1.15;letter-spaci
 .event__success>*{position:relative}
 .event__form h3,.event__success h3{font-size:1.8rem;color:#fff;margin-bottom:.45rem}
 .event__form>p{color:rgba(255,255,255,.92);font-size:.95rem;margin-bottom:1rem}
-.event__form input[type=email]{
+.event__form input[type=text],.event__form input[type=email]{
   width:100%;padding:1.05rem 1.3rem;border-radius:100px;border:2px solid rgba(255,255,255,.55);
   background:rgba(255,255,255,.16);color:#fff;font-family:var(--font-b);font-size:1rem;font-weight:600;
   backdrop-filter:blur(8px);transition:border-color .3s,background .3s;
