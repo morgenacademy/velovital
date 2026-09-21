@@ -1,0 +1,355 @@
+/* =========================================================
+   FIETS PAGE — start-met-een-fiets.html
+   ========================================================= */
+
+/* ---------- hero ---------- */
+.fiets-hero {
+  padding: 8rem clamp(1.1rem, 4vw, 2.2rem) 3rem;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.fiets-hero__content {
+  max-width: 680px;
+}
+.fiets-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 2rem;
+  transition: gap .3s var(--ease);
+}
+.fiets-hero__back:hover { gap: .8em; }
+.fiets-hero__back svg { flex-shrink: 0; }
+.fiets-hero h1 {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  margin-bottom: 1.2rem;
+  padding-top: .08em;
+}
+.fiets-hero h1 em { color: var(--purple); font-style: normal; }
+.fiets-hero__sub {
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  color: rgba(26, 11, 24, .72);
+  max-width: 48ch;
+  line-height: 1.65;
+}
+
+/* ---------- showcase ---------- */
+.fiets-showcase {
+  padding: 2rem clamp(1.1rem, 4vw, 2.2rem) 5rem;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.fiets-showcase__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  background: #fff;
+  border-radius: var(--r-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1.5px solid rgba(128, 0, 255, .08);
+}
+.fiets-showcase__img {
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.fiets-showcase__img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.fiets-showcase__info h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: .5rem;
+  padding-top: .08em;
+}
+.fiets-showcase__name {
+  font-family: var(--font-b);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 1.2rem;
+}
+.fiets-showcase__intro {
+  font-size: 1.05rem;
+  color: rgba(26, 11, 24, .72);
+  margin-bottom: 1rem;
+  max-width: 38ch;
+  line-height: 1.6;
+}
+.fiets-showcase__note {
+  font-family: var(--font-d);
+  font-size: 1.15rem;
+  color: var(--purple);
+  font-weight: 500;
+}
+
+/* ---------- info blocks ---------- */
+.fiets-info {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2rem clamp(1.1rem, 4vw, 2.2rem) 5rem;
+}
+.fiets-info__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+}
+.fiets-block {
+  background: #fff;
+  border-radius: var(--r-lg);
+  padding: 2.2rem 2rem;
+  border: 1.5px solid rgba(128, 0, 255, .08);
+  box-shadow: var(--shadow-sm);
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+}
+.fiets-block:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+.fiets-block__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--grad);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.2rem;
+}
+.fiets-block h3 {
+  font-size: 1.4rem;
+  margin-bottom: .6rem;
+}
+.fiets-block p {
+  font-size: .98rem;
+  color: rgba(26, 11, 24, .7);
+  line-height: 1.6;
+}
+
+/* ---------- timeline ---------- */
+.fiets-timeline {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 clamp(1.1rem, 4vw, 2.2rem) 5rem;
+}
+.fiets-timeline__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+.fiets-step {
+  position: relative;
+  padding: 2rem 1.5rem;
+  border-radius: var(--r);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(128, 0, 255, .06);
+  transition: transform .4s var(--ease);
+}
+.fiets-step:hover { transform: translateY(-5px); }
+.fiets-step__no {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--grad);
+  color: #fff;
+  font-family: var(--font-d);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.fiets-step h3 {
+  font-size: 1.3rem;
+  margin-bottom: .5rem;
+}
+.fiets-step p {
+  font-size: .95rem;
+  color: rgba(26, 11, 24, .68);
+}
+
+/* ---------- prijs ---------- */
+.fiets-prijs {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 clamp(1.1rem, 4vw, 2.2rem) 5rem;
+}
+.fiets-prijs__inner {
+  background: var(--purple);
+  border-radius: var(--r-lg);
+  padding: 3rem clamp(2rem, 4vw, 4rem);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.fiets-prijs__inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 140, 35, .4), transparent 45%),
+              radial-gradient(circle at 85% 80%, rgba(255, 47, 178, .5), transparent 45%);
+  pointer-events: none;
+}
+.fiets-prijs__inner > * { position: relative; z-index: 1; }
+.fiets-prijs__amount {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .3rem;
+  margin-bottom: .8rem;
+}
+.fiets-prijs__euro {
+  font-family: var(--font-d);
+  font-size: clamp(3rem, 7vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1;
+}
+.fiets-prijs__per {
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: .85;
+}
+.fiets-prijs__inner h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+.fiets-prijs__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem 2rem;
+  margin-bottom: 1.5rem;
+}
+.fiets-prijs__list li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: .95rem;
+  color: rgba(255, 255, 255, .95);
+  font-weight: 500;
+  text-align: left;
+}
+.fiets-prijs__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .35em;
+  width: 12px;
+  height: 6px;
+  border-left: 2.5px solid #fff;
+  border-bottom: 2.5px solid #fff;
+  transform: rotate(-45deg);
+}
+.fiets-prijs__note {
+  font-size: .9rem;
+  color: rgba(255, 255, 255, .85);
+  font-weight: 500;
+}
+
+/* ---------- email CTA ---------- */
+.fiets-cta {
+  position: relative;
+  padding: 6rem clamp(1.1rem, 4vw, 2.2rem);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--grad);
+}
+.fiets-cta__bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.fiets-cta__content {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+.fiets-cta__content h2 {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  margin-bottom: 1rem;
+  padding-top: .1em;
+}
+.fiets-cta__content > p {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, .96);
+  margin-bottom: 2.4rem;
+}
+
+.fiets-form { display: flex; flex-direction: column; gap: .9rem; text-align: left; }
+.fiets-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+.fiets-form input[type=text],
+.fiets-form input[type=email] {
+  width: 100%;
+  padding: 1.05rem 1.3rem;
+  border-radius: 100px;
+  border: 2px solid rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, .16);
+  color: #fff;
+  font-family: var(--font-b);
+  font-size: 1rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  transition: border-color .3s, background .3s;
+}
+.fiets-form input::placeholder { color: rgba(255, 255, 255, .8); }
+.fiets-form input:focus { outline: none; border-color: #fff; background: rgba(255, 255, 255, .26); }
+.fiets-form .btn { --bg: var(--purple); color: #fff; margin-top: .4rem; }
+.fiets-form .btn:hover { background: var(--purple-d); }
+.fiets-form__mini {
+  text-align: center;
+  font-size: .85rem;
+  color: rgba(255, 255, 255, .9);
+  margin-top: .3rem;
+}
+
+.fiets-form__success {
+  background: rgba(255, 255, 255, .16);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, .4);
+  border-radius: var(--r-lg);
+  padding: 3rem 2rem;
+  color: #fff;
+  animation: pop .5s var(--ease);
+}
+.fiets-form__check {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--purple);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 1.2rem;
+}
+.fiets-form__success h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: .6rem;
+}
+.fiets-form__success p { color: rgba(255, 255, 255, .95); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1000px) {
+  .fiets-timeline__list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .fiets-showcase__inner { grid-template-columns: 1fr; gap: 2rem; }
+  .fiets-info__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .fiets-hero { padding-top: 6rem; }
+  .fiets-form__row { grid-template-columns: 1fr; }
+  .fiets-prijs__list { flex-direction: column; align-items: center; }
+}
+@media (max-width: 480px) {
+  .fiets-timeline__list { grid-template-columns: 1fr; }
+}
