@@ -280,6 +280,8 @@ h1,h2,h3{font-family:var(--font-d);font-weight:500;line-height:1.15;letter-spaci
 .event__form .btn{--bg:var(--purple);color:#fff;margin-top:1rem}
 .event__form .btn:hover{background:var(--purple-d)}
 .event__mini{font-size:.8rem;text-align:center;color:rgba(255,255,255,.86);margin:.8rem 0 0}
+.event__choice{padding:.8rem 1rem;border:1px solid rgba(255,255,255,.5);border-radius:18px;font-weight:800}
+.event__status{padding:2rem;border-radius:var(--r-lg);background:#fff;color:var(--ink);box-shadow:var(--shadow);font-weight:700}
 .event__bot,.join__bot{display:none}
 .event__success{text-align:center;align-self:stretch;display:grid;align-content:center;min-height:360px}
 .event__check-icon{width:66px;height:66px;border-radius:50%;background:#fff;color:var(--purple);display:grid;place-items:center;margin:0 auto 1.2rem}

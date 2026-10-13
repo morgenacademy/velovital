@@ -196,6 +196,5 @@
     });
   };
 
-  handleForm(document.getElementById('kikiEventForm'), document.getElementById('kikiEventSuccess'), ['voornaam', 'email']);
   handleForm(document.getElementById('joinForm'), document.getElementById('joinSuccess'), ['naam', 'email']);
 })();

@@ -18,4 +18,5 @@ coverage/
 /*
 !/.gitignore
 !/netlify.toml
+!/netlify/
 !/website/
