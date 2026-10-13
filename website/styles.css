@@ -286,6 +286,7 @@ h1,h2,h3{font-family:var(--font-d);font-weight:500;line-height:1.15;letter-spaci
 .event__success{text-align:center;align-self:stretch;display:grid;align-content:center;min-height:360px}
 .event__check-icon{width:66px;height:66px;border-radius:50%;background:#fff;color:var(--purple);display:grid;place-items:center;margin:0 auto 1.2rem}
 .event__success p{color:rgba(255,255,255,.94)}
+.event__form[hidden],.event__success[hidden],.event__status[hidden]{display:none}
 .event--landing{padding-top:9rem;background:linear-gradient(180deg,#fff6ef 0%,#fff 100%)}
 .event--landing .event__copy .story-card__cta{margin-bottom:1.6rem}
 .event--landing .hero__title{
