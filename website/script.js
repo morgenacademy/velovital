@@ -130,7 +130,7 @@
     data.set('form-name', form.name);
     return data.toString();
   };
-  const handleForm = (form, success, requiredFields) => {
+  const handleForm = (form, success, requiredFields, redirect) => {
     if (!form) return;
     const error = document.createElement('p');
     error.setAttribute('role', 'alert');
@@ -161,6 +161,7 @@
         return;
       }
       const showSuccess = () => {
+        if (redirect) { redirect(form); return; }
         form.hidden = true;
         if (success) {
           success.hidden = false;
@@ -196,5 +197,16 @@
     });
   };
 
-  handleForm(document.getElementById('joinForm'), document.getElementById('joinSuccess'), ['naam', 'email']);
+  /* Na aanmelden via Join the ride: door naar de welkomstpagina (velovital.nl/welkom) */
+  const toWelkom = (form) => {
+    try {
+      const checked = form.querySelector('input[name="situatie"]:checked');
+      sessionStorage.setItem('vv-aanmelding', JSON.stringify({
+        naam: form.elements.naam ? form.elements.naam.value : '',
+        situatie: checked ? checked.value : ''
+      }));
+    } catch (err) { /* opslag niet beschikbaar: welkomstpagina werkt ook zonder naam */ }
+    window.location.href = '/welkom';
+  };
+  handleForm(document.getElementById('joinForm'), document.getElementById('joinSuccess'), ['naam', 'email'], toWelkom);
 })();

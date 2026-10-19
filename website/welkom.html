@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welkom bij de ride · Velo Vital</title>
+<meta name="description" content="Je bent aangemeld bij Velo Vital. Zo gaat het verder.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Montserrat:ital,wght@0,300..800;1,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=4">
+<link rel="stylesheet" href="/welkom.css?v=1">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo" aria-label="Velo Vital home">
+      <span class="nav__logo-mark">Velo</span><span class="nav__logo-mark nav__logo-mark--it">Vital</span>
+    </a>
+    <nav class="nav__links" aria-label="Hoofdmenu">
+      <a href="/#agenda">Agenda</a>
+      <a href="/#opties">Hoe het werkt</a>
+      <a href="/verhalen.html">Verhalen</a>
+      <a href="/vakanties.html">Fietsvakanties</a>
+    </nav>
+    <a href="/#agenda" class="btn btn--sm nav__cta">Bekijk de agenda</a>
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="welkom-hero">
+  <div class="welkom-hero__bg" aria-hidden="true">
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="blob blob--3"></span>
+  </div>
+  <div class="welkom-hero__content">
+    <div class="welkom-hero__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="38" height="38"><path d="M5 13l4 4 10-11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="eyebrow reveal">Je bent binnen · F#CK TMRW · RIDE2DAY</span>
+    <h1 class="reveal" style="--d:.06s">Welkom<span id="welkomNaam"></span>!</h1>
+    <p class="welkom-hero__sub reveal" style="--d:.12s">Wat fijn dat je erbij bent. Je aanmelding is binnen en je bent nu officieel onderdeel van de Velo Vital community.</p>
+    <div class="welkom-hero__cta reveal" style="--d:.18s">
+      <a href="https://chat.whatsapp.com/VUL-HIER-DE-LINK-IN" class="btn btn--lg magnetic" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19l-4 1z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        Join de WhatsApp community
+      </a>
+      <a href="#verder" class="btn btn--lg btn--ghost">Zo gaat het verder</a>
+    </div>
+  </div>
+</section>
+
+<!-- STAPPEN -->
+<section class="welkom-steps" id="verder">
+  <div class="welkom-steps__inner">
+    <div class="welkom-steps__head reveal">
+      <span class="eyebrow">Zo gaat het verder</span>
+      <h2>Van aanmelding naar je eerste ride</h2>
+      <p>Eén ding kun je nu al doen: kom erbij in onze WhatsApp community.</p>
+    </div>
+    <div class="welkom-steps__grid">
+      <article class="welkom-step reveal" style="--d:.04s">
+        <h3>Kom in de WhatsApp community</h3>
+        <p>Daar ontmoet je de andere vrouwen en hoor je als eerste over nieuwe rides. <a href="https://chat.whatsapp.com/VUL-HIER-DE-LINK-IN" target="_blank" rel="noopener">Join de community</a></p>
+      </article>
+      <article class="welkom-step reveal" style="--d:.1s">
+        <h3>We maken even kennis</h3>
+        <p>Tussendoor nemen we contact met je op. We horen graag wat je van de community verwacht, zodat we je goed op weg helpen.</p>
+      </article>
+      <article class="welkom-step reveal" style="--d:.16s">
+        <h3>Stap op en rijd mee</h3>
+        <p>Je fietst met vrouwen die net als jij meer willen bewegen, in hun eigen tempo. Samen is alles leuker.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LEENFIETS (alleen zichtbaar bij keuze leenfiets) -->
+<section class="welkom-fiets" id="welkomFiets" hidden>
+  <div class="welkom-fiets__card reveal">
+    <div>
+      <span class="eyebrow">Je koos voor een leenfiets</span>
+      <h2>Wij regelen je fiets</h2>
+      <p>Je hoeft er niets van te weten. We zorgen voor een fiets die bij je past en helpen je op weg. Lees alvast hoe dat werkt.</p>
+    </div>
+    <a href="/start-met-een-fiets.html" class="btn btn--lg">Start met een fiets
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="agenda" id="agenda">
+  <div class="agenda__inner">
+    <div class="agenda__head reveal">
+      <span class="eyebrow">Binnenkort</span>
+      <h2>Rijd alvast mee</h2>
+      <p>Kun je niet wachten? Dit is het eerstvolgende moment om aan te haken.</p>
+    </div>
+    <div class="agenda__list">
+      <a href="/fietsenisleven" class="agenda-card agenda-card--feature reveal" style="--d:.06s">
+        <span class="agenda-card__date">18 okt · 09:00u</span>
+        <div class="agenda-card__body">
+          <span class="agenda-card__label">Save the date</span>
+          <h3>Fiets mee met Kiki van fietsenisleven</h3>
+          <p>Verzamelen vanaf 09:00 uur bij The Happiness Cafe in Den Bosch, met koffie en lekkers. Daarna twee begeleide fietsrondes: 33 kilometer voor beginners en 60 kilometer voor ervaren fietsers.</p>
+        </div>
+        <span class="agenda-card__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VERDER ONTDEKKEN -->
+<section class="welkom-more">
+  <div class="welkom-more__inner">
+    <span class="eyebrow reveal">Kom alvast in de sfeer</span>
+    <h2 class="reveal">Leer de community kennen</h2>
+    <div class="welkom-more__grid">
+      <a href="/verhalen.html" class="welkom-tile reveal" style="--d:.04s">
+        <img src="/assets/community-1-web.jpg" alt="Vrouwen van Velo Vital samen op de fiets" loading="lazy">
+        <div class="welkom-tile__body">
+          <h3>Verhalen</h3>
+          <p>Lees hoe andere vrouwen hun eerste stappen op de fiets zetten.</p>
+        </div>
+      </a>
+      <a href="/vakanties.html" class="welkom-tile reveal" style="--d:.1s">
+        <img src="/assets/finish-parijs.jpg" alt="Finish van de Velo Vital fietstocht naar Parijs" loading="lazy">
+        <div class="welkom-tile__body">
+          <h3>Fietsvakanties</h3>
+          <p>Van Den Bosch naar Parijs, Berlijn of Londen. Samen onderweg.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">Velo<em>Vital</em></span>
+      <p>Fietscommunity voor vrouwen in 's-Hertogenbosch en omgeving. Samen bewegen, samen groeien.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="/#agenda">Agenda</a>
+      <a href="/#opties">Hoe het werkt</a>
+      <a href="/#lidmaatschap">Lidmaatschap</a>
+      <a href="/verhalen.html">Verhalen</a>
+      <a href="/vakanties.html">Fietsvakanties</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+  </div>
+  <div class="footer__bar">
+    <span>© 2026 Velo Vital · velovital.nl</span>
+    <span>Stichting Velo Vital · KvK 60618167 · <a href="mailto:info@velovital.nl">info@velovital.nl</a></span>
+  </div>
+</footer>
+
+<script>
+  /* Persoonlijke begroeting en leenfiets-blok op basis van de net verstuurde aanmelding */
+  (function () {
+    var data = null;
+    try { data = JSON.parse(sessionStorage.getItem('vv-aanmelding') || 'null'); } catch (e) {}
+    if (!data) return;
+    var naam = (data.naam || '').trim().split(/\s+/)[0];
+    if (naam) {
+      naam = naam.charAt(0).toUpperCase() + naam.slice(1);
+      document.getElementById('welkomNaam').textContent = ', ' + naam;
+      document.title = 'Welkom, ' + naam + ' · Velo Vital';
+    }
+    if (data.situatie === 'geen-fiets') document.getElementById('welkomFiets').hidden = false;
+  })();
+</script>
+<script src="/script.js?v=3"></script>
+</body>
+</html>

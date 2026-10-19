@@ -1,0 +1,82 @@
+/* ===== VELO VITAL — welkomstpagina na aanmelden ===== */
+.welkom-hero{
+  position:relative;isolation:isolate;overflow:hidden;background:var(--grad);color:#fff;
+  min-height:88svh;display:flex;align-items:center;
+  padding:8rem clamp(1.1rem,4vw,2.2rem) 5rem;
+}
+.welkom-hero__bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.welkom-hero__content{max-width:820px;margin:0 auto;text-align:center}
+.welkom-hero__icon{
+  width:78px;height:78px;border-radius:50%;background:#fff;color:var(--purple);
+  display:grid;place-items:center;margin:0 auto 1.6rem;box-shadow:0 18px 40px -14px rgba(128,0,255,.6);
+  animation:pop .6s var(--ease) both;
+}
+.welkom-hero .eyebrow{color:#fff;opacity:.95}
+.welkom-hero h1{font-size:clamp(3rem,9vw,7rem);margin-bottom:1.3rem;padding-top:.1em;overflow-wrap:anywhere}
+.welkom-hero__sub{font-size:clamp(1.05rem,1.9vw,1.3rem);color:rgba(255,255,255,.96);max-width:46ch;margin:0 auto 2.2rem}
+.welkom-hero__cta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.welkom-hero__cta .btn{--bg:#fff;color:var(--purple)}
+.welkom-hero__cta .btn:hover{background:#fff;color:var(--purple-d)}
+.welkom-hero__cta .btn--ghost{color:#fff}
+.welkom-hero__cta .btn--ghost:hover{background:rgba(255,255,255,.28);color:#fff}
+
+/* stappen */
+.welkom-steps{background:var(--cream);padding:5.5rem clamp(1.1rem,4vw,2.2rem)}
+.welkom-steps__inner{max-width:var(--maxw);margin:0 auto}
+.welkom-steps__head{max-width:640px;margin-bottom:2.6rem}
+.welkom-steps__head h2{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:.7rem}
+.welkom-steps__head p{color:rgba(26,11,24,.72);font-size:1.05rem}
+.welkom-steps__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;counter-reset:stap}
+.welkom-step{
+  background:#fff;border:1.5px solid rgba(128,0,255,.1);border-radius:var(--r-lg);padding:2rem 1.7rem;
+  box-shadow:var(--shadow-sm);counter-increment:stap;
+}
+.welkom-step::before{
+  content:counter(stap);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;
+  background:var(--grad);color:#fff;font-family:var(--font-d);font-size:1.5rem;margin-bottom:1.2rem;
+}
+.welkom-step h3{font-family:var(--font-b);font-weight:900;font-size:1.15rem;letter-spacing:0;margin-bottom:.45rem}
+.welkom-step p{color:rgba(26,11,24,.72);font-size:.96rem}
+.welkom-step a{color:var(--purple);font-weight:700;border-bottom:1.5px solid rgba(128,0,255,.3)}
+
+/* leenfiets */
+.welkom-fiets{background:var(--cream);padding:0 clamp(1.1rem,4vw,2.2rem) 5.5rem}
+.welkom-fiets__card{
+  max-width:var(--maxw);margin:0 auto;border-radius:var(--r-lg);padding:clamp(2rem,4vw,3rem);
+  background:var(--purple);color:#fff;position:relative;overflow:hidden;isolation:isolate;
+  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;
+}
+.welkom-fiets__card::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 85% 20%,rgba(255,140,35,.45),transparent 55%),radial-gradient(circle at 10% 90%,rgba(255,47,178,.45),transparent 55%)}
+.welkom-fiets__card .eyebrow{color:var(--orange)}
+.welkom-fiets__card h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:.6rem}
+.welkom-fiets__card p{color:rgba(255,255,255,.9);max-width:56ch}
+.welkom-fiets__card .btn{--bg:#fff;color:var(--purple)}
+.welkom-fiets__card .btn:hover{background:#fff;color:var(--purple-d)}
+
+/* verder ontdekken */
+.welkom-more{background:var(--cream);padding:5.5rem clamp(1.1rem,4vw,2.2rem)}
+.welkom-more__inner{max-width:var(--maxw);margin:0 auto}
+.welkom-more h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:2rem}
+.welkom-more__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.welkom-tile{
+  position:relative;display:block;border-radius:var(--r-lg);overflow:hidden;min-height:300px;color:#fff;
+  box-shadow:var(--shadow-sm);transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.welkom-tile:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.welkom-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.welkom-tile:hover img{transform:scale(1.05)}
+.welkom-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,11,24,0) 30%,rgba(26,11,24,.78))}
+.welkom-tile__body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:1.8rem}
+.welkom-tile__body h3{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:.3rem}
+.welkom-tile__body p{color:rgba(255,255,255,.9);font-size:.95rem;max-width:40ch}
+
+@media(max-width:900px){
+  .welkom-steps__grid{grid-template-columns:1fr}
+  .welkom-fiets__card{grid-template-columns:1fr}
+  .welkom-more__grid{grid-template-columns:1fr}
+  .agenda__inner{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .welkom-hero__cta .btn{width:100%;justify-content:center}
+  .welkom-tile{min-height:240px}
+}

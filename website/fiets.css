@@ -353,3 +353,5 @@
 @media (max-width: 480px) {
   .fiets-timeline__list { grid-template-columns: 1fr; }
 }
+
+.fiets-step a { color: var(--purple); font-weight: 700; border-bottom: 1.5px solid rgba(128, 0, 255, .3); }

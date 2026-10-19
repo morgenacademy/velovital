@@ -20,3 +20,5 @@ coverage/
 !/netlify.toml
 !/netlify/
 !/website/
+
+.fuse_hidden*
