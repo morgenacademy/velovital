@@ -475,6 +475,8 @@ h1,h2,h3{font-family:var(--font-d);font-weight:500;line-height:1.15;letter-spaci
 .join__check input[type=checkbox]{width:18px;height:18px;margin-top:.1em;accent-color:var(--orange);flex-shrink:0;cursor:pointer}
 .join__check span{line-height:1.4}
 .join__mini{text-align:center;font-size:.85rem;color:rgba(255,255,255,.9);margin-top:.3rem}
+.join__mini a,.event__mini a{color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.join__mini--privacy{font-size:.78rem;opacity:.85}
 .join__success{background:rgba(255,255,255,.16);backdrop-filter:blur(12px);border:1.5px solid rgba(255,255,255,.4);border-radius:var(--r-lg);padding:3rem 2rem;color:#fff;animation:pop .5s var(--ease)}
 @keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
 .join__check-icon{width:66px;height:66px;border-radius:50%;background:#fff;color:var(--purple);display:grid;place-items:center;margin:0 auto 1.2rem}

@@ -196,3 +196,6 @@
   .nav__cta{display:none}
   .nav__burger{display:flex}
 }
+
+.bikepacking__privacy{color:rgba(255,255,255,.85);font-size:.78rem;text-align:center;margin-top:.8rem;opacity:.75}
+.bikepacking__privacy a{color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:2px}

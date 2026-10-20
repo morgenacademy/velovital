@@ -1,0 +1,62 @@
+/* =========================================================
+   VELO VITAL · Privacyverklaring
+   Bouwt voort op verhaal.css (hero + artikel)
+   ========================================================= */
+
+.privacy__updated{
+  display:inline-block;margin-bottom:2.2rem;font-size:.85rem;font-weight:600;
+  color:var(--purple);background:rgba(128,0,255,.06);
+  border:1.5px solid rgba(128,0,255,.12);padding:.45rem 1rem;border-radius:100px;
+}
+
+.privacy__toc{
+  margin:0 0 3rem;padding:1.6rem 1.8rem;border-radius:var(--r);
+  background:rgba(128,0,255,.04);border:1.5px solid rgba(128,0,255,.08);
+}
+.privacy__toc h2{font-family:var(--font-b);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(26,11,24,.55);margin-bottom:.9rem}
+.privacy__toc ol{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem 1.5rem;counter-reset:toc}
+.privacy__toc li{counter-increment:toc;font-size:.95rem}
+.privacy__toc li::before{content:counter(toc,decimal-leading-zero);font-weight:700;color:var(--pink);margin-right:.6rem;font-size:.8rem}
+.privacy__toc a{color:var(--ink);font-weight:600;border-bottom:1px solid transparent;transition:border-color .3s,color .3s}
+.privacy__toc a:hover{color:var(--purple);border-bottom-color:var(--purple)}
+
+.verhaal-article section{scroll-margin-top:6rem}
+.verhaal-article .verhaal__heading:first-child{margin-top:0}
+.verhaal__text a{color:var(--purple);font-weight:600;border-bottom:1px solid rgba(128,0,255,.35)}
+.verhaal__text a:hover{border-bottom-color:var(--purple)}
+
+/* tabellen */
+.privacy__table-wrap{margin:0 0 2rem;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r);border:1.5px solid rgba(128,0,255,.1)}
+.privacy__table{width:100%;border-collapse:collapse;font-size:.95rem;line-height:1.55;min-width:520px}
+.privacy__table th{
+  text-align:left;padding:.9rem 1.1rem;background:var(--purple);color:#fff;
+  font-weight:700;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;
+}
+.privacy__table td{padding:.95rem 1.1rem;vertical-align:top;color:rgba(26,11,24,.78);border-top:1px solid rgba(128,0,255,.08)}
+.privacy__table tr:nth-child(even) td{background:rgba(128,0,255,.03)}
+.privacy__table td:first-child{font-weight:600;color:var(--ink)}
+.privacy__table--compact{min-width:0}
+
+/* lijsten */
+.privacy__list{list-style:none;margin:0 0 1.8rem;display:flex;flex-direction:column;gap:.7rem}
+.privacy__list li{position:relative;padding-left:1.6rem;font-size:1.05rem;line-height:1.7;color:rgba(26,11,24,.75)}
+.privacy__list li::before{content:"";position:absolute;left:0;top:.62em;width:.6rem;height:.6rem;border-radius:50%;background:var(--grad)}
+.privacy__list strong{color:var(--ink);font-weight:600}
+
+.verhaal__highlight a{color:#fff;font-weight:700;border-bottom:1.5px solid rgba(255,255,255,.6)}
+
+@media(max-width:640px){
+  .privacy__toc ol{grid-template-columns:1fr}
+  .privacy__table{min-width:0}
+  .privacy__table thead{display:none}
+  .privacy__table tr{display:block;padding:1rem 1.1rem;border-top:1px solid rgba(128,0,255,.08)}
+  .privacy__table tbody tr:first-child{border-top:0}
+  .privacy__table tr:nth-child(even){background:rgba(128,0,255,.03)}
+  .privacy__table tr:nth-child(even) td{background:none}
+  .privacy__table td{display:block;padding:.15rem 0;border:0}
+  .privacy__table td[data-label]:not(:first-child)::before{
+    content:attr(data-label);display:block;margin-top:.55rem;font-size:.72rem;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--pink);
+  }
+  .privacy__table--compact td:first-child{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--pink)}
+}
