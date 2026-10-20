@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Montserrat:ital,wght@0,300..800;1,400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -100,8 +100,10 @@
       <h2>Dit komt eraan</h2>
       <p>Rides, clinics en momenten om laagdrempelig aan te haken. Klik door als je alvast interesse wilt doorgeven.</p>
     </div>
+    <!-- Nieuw event? Kopieer een kaart en zet data-datum (en evt. data-eind) erop.
+         Verlopen events worden automatisch doorgestreept; er staan er max. 3. Uitleg: bovenaan het agenda-blok in script.js. -->
     <div class="agenda__list">
-      <a href="/fietsenisleven" class="agenda-card agenda-card--feature reveal" style="--d:.06s">
+      <a href="/fietsenisleven" class="agenda-card agenda-card--feature reveal" style="--d:.06s" data-datum="2026-10-18T09:00" data-eind="2026-10-18T13:00" data-verlopen-tekst="Bedankt aan iedereen die meefietste met Kiki! Wil je er de volgende keer bij zijn? Laat je e-mailadres achter.">
         <span class="agenda-card__date">18 okt · 09:00u</span>
         <div class="agenda-card__body">
           <span class="agenda-card__label">Volgeboekt</span>
@@ -112,12 +114,13 @@
           <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
       </a>
-      <a href="#join" class="agenda-card reveal" style="--d:.12s">
+      <!-- Reservekaart: alleen zichtbaar als er geen komende events met datum zijn. -->
+      <a href="#join" class="agenda-card reveal" style="--d:.12s" data-reserve>
         <span class="agenda-card__date">Binnenkort</span>
         <div class="agenda-card__body">
-          <span class="agenda-card__label">Community</span>
+          <span class="agenda-card__label">Nieuwe ritten volgen</span>
           <h3>Kennismakingsritten</h3>
-          <p>Rustige ritten voor vrouwen die willen ontdekken of samen fietsen iets voor hen is.</p>
+          <p>Rustige ritten voor vrouwen die willen ontdekken of samen fietsen iets voor hen is. We plannen de volgende data: word gratis community member en je hoort het als eerste.</p>
         </div>
         <span class="agenda-card__arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -549,6 +552,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=5"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>
