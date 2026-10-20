@@ -26,7 +26,7 @@
 .welkom-steps__head{max-width:640px;margin-bottom:2.6rem}
 .welkom-steps__head h2{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:.7rem}
 .welkom-steps__head p{color:rgba(26,11,24,.72);font-size:1.05rem}
-.welkom-steps__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;counter-reset:stap}
+.welkom-steps__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;counter-reset:stap}
 .welkom-step{
   background:#fff;border:1.5px solid rgba(128,0,255,.1);border-radius:var(--r-lg);padding:2rem 1.7rem;
   box-shadow:var(--shadow-sm);counter-increment:stap;
