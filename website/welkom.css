@@ -109,3 +109,4 @@
 .welkom-leeg__row input:focus{outline:none;border-color:var(--purple)}
 .welkom-leeg [role="alert"]{margin-top:.8rem;color:#b00060;font-weight:600}
 @media(max-width:560px){.welkom-leeg__row .btn{width:100%;justify-content:center}}
+.welkom-leeg--nieuwsbrief{margin-top:1.2rem}

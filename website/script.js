@@ -210,20 +210,20 @@
         naam: form.elements.naam ? form.elements.naam.value : '',
         email: form.elements.email ? form.elements.email.value : '',
         situatie: checked ? checked.value : '',
-        updates: !!(form.elements.updates && form.elements.updates.checked)
+        nieuwsbrief: !!(form.elements.nieuwsbrief && form.elements.nieuwsbrief.checked)
       }));
     } catch (err) { /* opslag niet beschikbaar: welkomstpagina werkt ook zonder naam */ }
     window.location.href = '/welkom';
   };
   handleForm(document.getElementById('joinForm'), document.getElementById('joinSuccess'), ['naam', 'email'], toWelkom);
 
-  /* Welkomstpagina: alsnog toestemming geven voor updates over nieuwe ritten */
-  handleForm(document.getElementById('updatesForm'), document.getElementById('updatesSuccess'), ['email'], (form) => {
+  /* Welkomstpagina: alsnog aanmelden voor de nieuwsbrief */
+  handleForm(document.getElementById('nieuwsbriefForm'), document.getElementById('nieuwsbriefSuccess'), ['email'], (form) => {
     form.hidden = true;
-    document.getElementById('updatesSuccess').hidden = false;
+    document.getElementById('nieuwsbriefSuccess').hidden = false;
     try {
       const d = JSON.parse(sessionStorage.getItem('vv-aanmelding') || '{}');
-      d.updates = true;
+      d.nieuwsbrief = true;
       sessionStorage.setItem('vv-aanmelding', JSON.stringify(d));
     } catch (err) { /* geen opslag: niet erg */ }
   });

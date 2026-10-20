@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Montserrat:ital,wght@0,300..800;1,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css?v=4">
-<link rel="stylesheet" href="/welkom.css?v=2">
+<link rel="stylesheet" href="/welkom.css?v=3">
 </head>
 <body>
 
@@ -110,25 +110,25 @@
 
       <div class="welkom-leeg reveal" id="welkomLeeg" hidden>
         <p class="welkom-leeg__titel">Er staat nu even geen rit open.</p>
+        <p id="leegAangemeld" hidden>Zodra er een nieuwe rit gepland staat, krijg je van ons een mail. In de <a href="https://chat.whatsapp.com/JVFGGl7li9K3eHLuTD8bqc" data-whatsapp target="_blank" rel="noopener">WhatsApp community</a> zie je het nog sneller.</p>
+        <p id="leegOnbekend" hidden>Meld je aan via <a href="/#join">Join the ride</a>, dan mailen we je zodra er een nieuwe rit gepland staat. Of kom erbij in de <a href="https://chat.whatsapp.com/JVFGGl7li9K3eHLuTD8bqc" data-whatsapp target="_blank" rel="noopener">WhatsApp community</a>.</p>
+      </div>
 
-        <div id="leegMetUpdates" hidden>
-          <p>Je staat op de lijst voor nieuws van Velo Vital, dus zodra er een nieuwe rit gepland is, hoor je het per mail. In de <a href="https://chat.whatsapp.com/JVFGGl7li9K3eHLuTD8bqc" data-whatsapp target="_blank" rel="noopener">WhatsApp community</a> zie je het nog sneller.</p>
-        </div>
-
-        <form class="welkom-leeg__form" id="updatesForm" name="join-updates" method="POST" action="/welkom" data-netlify="true" netlify-honeypot="bot-field" novalidate hidden>
-          <input type="hidden" name="form-name" value="join-updates">
+      <div class="welkom-leeg welkom-leeg--nieuwsbrief reveal" id="welkomNieuwsbrief" hidden>
+        <form class="welkom-leeg__form" id="nieuwsbriefForm" name="join-nieuwsbrief" method="POST" action="/welkom" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="join-nieuwsbrief">
           <p class="join__bot" aria-hidden="true"><label>Niet invullen <input name="bot-field"></label></p>
-          <input type="hidden" name="updates" value="ja">
-          <input type="hidden" name="naam" id="updatesNaam">
-          <p>Wil je op de hoogte blijven van nieuwe rides en ander nieuws van Velo Vital? Dan sturen we je af en toe een mail. Afmelden kan altijd, met één klik onderaan elke mail.</p>
+          <input type="hidden" name="nieuwsbrief" value="ja">
+          <input type="hidden" name="naam" id="nieuwsbriefNaam">
+          <p class="welkom-leeg__titel">Ook onze nieuwsbrief?</p>
+          <p>Verhalen van andere vrouwen, fietsvakanties en ander nieuws van Velo Vital. Af en toe een mail, afmelden kan altijd met één klik.</p>
           <div class="welkom-leeg__row">
-            <input type="email" name="email" id="updatesEmail" placeholder="Je e-mailadres" aria-label="Je e-mailadres" autocomplete="email" required>
-            <button type="submit" class="btn">Ja, houd me op de hoogte</button>
+            <input type="email" name="email" id="nieuwsbriefEmail" placeholder="Je e-mailadres" aria-label="Je e-mailadres" autocomplete="email" required>
+            <button type="submit" class="btn">Ja, stuur me de nieuwsbrief</button>
           </div>
         </form>
-
-        <div id="updatesSuccess" hidden>
-          <p><strong>Top, je staat op de lijst.</strong> Je hoort van ons over nieuwe rides en ander nieuws van Velo Vital.</p>
+        <div id="nieuwsbriefSuccess" hidden>
+          <p><strong>Top, je staat op de lijst voor de nieuwsbrief.</strong></p>
         </div>
       </div>
     </div>
@@ -207,6 +207,13 @@
     var esc = function (t) { var d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; };
     var pijl = '<span class="agenda-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
 
+    /* Nieuwsbrief aanbieden aan wie zich net aanmeldde zonder vinkje */
+    if (data.email && !data.nieuwsbrief) {
+      document.getElementById('welkomNieuwsbrief').hidden = false;
+      document.getElementById('nieuwsbriefEmail').value = data.email;
+      document.getElementById('nieuwsbriefNaam').value = data.naam || '';
+    }
+
     if (open.length) {
       document.getElementById('welkomRides').innerHTML = open.map(function (r, i) {
         var d = new Date(r.datum + 'T00:00:00');
@@ -218,19 +225,13 @@
       return;
     }
 
-    /* Niets open: wel of geen toestemming voor updates */
+    /* Niets open */
     document.getElementById('ridesKop').textContent = 'Rijd je een volgende keer mee?';
     document.getElementById('ridesIntro').textContent = 'We plannen steeds nieuwe ritten, in je eigen tempo en altijd samen.';
     document.getElementById('welkomLeeg').hidden = false;
-    if (data.updates) {
-      document.getElementById('leegMetUpdates').hidden = false;
-    } else {
-      document.getElementById('updatesForm').hidden = false;
-      if (data.email) document.getElementById('updatesEmail').value = data.email;
-      document.getElementById('updatesNaam').value = data.naam || '';
-    }
+    document.getElementById(data.email ? 'leegAangemeld' : 'leegOnbekend').hidden = false;
   })();
 </script>
-<script src="/script.js?v=6"></script>
+<script src="/script.js?v=7"></script>
 </body>
 </html>
