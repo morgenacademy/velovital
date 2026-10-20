@@ -50,10 +50,14 @@
     <h1 class="reveal" style="--d:.06s">Welkom<span id="welkomNaam"></span>!</h1>
     <p class="welkom-hero__sub reveal" style="--d:.12s">Wat fijn dat je erbij bent. Je aanmelding is binnen en je bent nu officieel onderdeel van de Velo Vital community.</p>
     <div class="welkom-hero__cta reveal" style="--d:.18s">
-      <a href="https://chat.whatsapp.com/VUL-HIER-DE-LINK-IN" class="btn btn--lg magnetic" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19l-4 1z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+      <a href="https://chat.whatsapp.com/JVFGGl7li9K3eHLuTD8bqc" data-whatsapp class="btn btn--lg magnetic" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19l-4 1z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
         Join de WhatsApp community
       </a>
       <a href="#verder" class="btn btn--lg btn--ghost">Zo gaat het verder</a>
+    </div>
+    <div class="welkom-qr reveal" style="--d:.24s">
+      <img src="/assets/whatsapp-qr.svg" alt="QR-code naar de Velo Vital WhatsApp community" width="132" height="132">
+      <p>Zit je achter je computer? Scan de code met je telefoon en je zit er meteen in.</p>
     </div>
   </div>
 </section>
@@ -69,7 +73,7 @@
     <div class="welkom-steps__grid">
       <article class="welkom-step reveal" style="--d:.04s">
         <h3>Kom in de WhatsApp community</h3>
-        <p>Daar ontmoet je de andere vrouwen en hoor je als eerste over nieuwe rides. <a href="https://chat.whatsapp.com/VUL-HIER-DE-LINK-IN" target="_blank" rel="noopener">Join de community</a></p>
+        <p>Daar ontmoet je de andere vrouwen en hoor je als eerste over nieuwe rides. <a href="https://chat.whatsapp.com/JVFGGl7li9K3eHLuTD8bqc" data-whatsapp target="_blank" rel="noopener">Join de community</a></p>
       </article>
       <article class="welkom-step reveal" style="--d:.1s">
         <h3>We maken even kennis</h3>
@@ -97,26 +101,40 @@
   </div>
 </section>
 
-<!-- AGENDA -->
+<!-- AGENDA: open ritten uit rides.js, anders melding of vraag om op de hoogte te blijven -->
 <section class="agenda" id="agenda">
   <div class="agenda__inner">
     <div class="agenda__head reveal">
       <span class="eyebrow">Binnenkort</span>
-      <h2>Rijd alvast mee</h2>
-      <p>Kun je niet wachten? Dit is het eerstvolgende moment om aan te haken.</p>
+      <h2 id="ridesKop">Rijd alvast mee</h2>
+      <p id="ridesIntro">Kun je niet wachten? Dit zijn de ritten waar je je nu voor kunt aanmelden.</p>
     </div>
-    <div class="agenda__list">
-      <a href="/fietsenisleven" class="agenda-card agenda-card--feature reveal" style="--d:.06s">
-        <span class="agenda-card__date">18 okt · 09:00u</span>
-        <div class="agenda-card__body">
-          <span class="agenda-card__label">Save the date</span>
-          <h3>Fiets mee met Kiki van fietsenisleven</h3>
-          <p>Verzamelen vanaf 09:00 uur bij The Happiness Cafe in Den Bosch, met koffie en lekkers. Daarna twee begeleide fietsrondes: 33 kilometer voor beginners en 60 kilometer voor ervaren fietsers.</p>
+    <div>
+      <div class="agenda__list" id="welkomRides"></div>
+
+      <div class="welkom-leeg reveal" id="welkomLeeg" hidden>
+        <p class="welkom-leeg__titel">Er staat nu even geen rit open.</p>
+
+        <div id="leegMetUpdates" hidden>
+          <p>Je staat op de lijst. Zodra er een nieuwe rit gepland is, hoor je het als eerste per mail. In de <a href="https://chat.whatsapp.com/JVFGGl7li9K3eHLuTD8bqc" data-whatsapp target="_blank" rel="noopener">WhatsApp community</a> zie je het nog sneller.</p>
         </div>
-        <span class="agenda-card__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-      </a>
+
+        <form class="welkom-leeg__form" id="updatesForm" name="join-updates" method="POST" action="/welkom" data-netlify="true" netlify-honeypot="bot-field" novalidate hidden>
+          <input type="hidden" name="form-name" value="join-updates">
+          <p class="join__bot" aria-hidden="true"><label>Niet invullen <input name="bot-field"></label></p>
+          <input type="hidden" name="updates" value="ja">
+          <input type="hidden" name="naam" id="updatesNaam">
+          <p>Wil je een mailtje als er een nieuwe rit gepland staat? Dan houden we je op de hoogte. Afmelden kan altijd.</p>
+          <div class="welkom-leeg__row">
+            <input type="email" name="email" id="updatesEmail" placeholder="Je e-mailadres" aria-label="Je e-mailadres" autocomplete="email" required>
+            <button type="submit" class="btn">Ja, houd me op de hoogte</button>
+          </div>
+        </form>
+
+        <div id="updatesSuccess" hidden>
+          <p><strong>Top, je staat op de lijst.</strong> Zodra er een nieuwe rit is, hoor je het als eerste.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -167,12 +185,14 @@
   </div>
 </footer>
 
+<script src="/rides.js?v=1"></script>
 <script>
-  /* Persoonlijke begroeting en leenfiets-blok op basis van de net verstuurde aanmelding */
+  /* Persoonlijke begroeting, leenfiets-blok en ritten op basis van de net verstuurde aanmelding */
   (function () {
     var data = null;
     try { data = JSON.parse(sessionStorage.getItem('vv-aanmelding') || 'null'); } catch (e) {}
-    if (!data) return;
+    data = data || {};
+
     var naam = (data.naam || '').trim().split(/\s+/)[0];
     if (naam) {
       naam = naam.charAt(0).toUpperCase() + naam.slice(1);
@@ -180,8 +200,41 @@
       document.title = 'Welkom, ' + naam + ' · Velo Vital';
     }
     if (data.situatie === 'geen-fiets') document.getElementById('welkomFiets').hidden = false;
+
+    /* Alleen open ritten vanaf vandaag */
+    var vandaag = new Date(); vandaag.setHours(0, 0, 0, 0);
+    var maanden = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+    var open = (window.VV_RIDES || []).filter(function (r) {
+      return r.open && new Date(r.datum + 'T00:00:00') >= vandaag;
+    }).sort(function (a, b) { return a.datum < b.datum ? -1 : 1; });
+
+    var esc = function (t) { var d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; };
+    var pijl = '<span class="agenda-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+
+    if (open.length) {
+      document.getElementById('welkomRides').innerHTML = open.map(function (r, i) {
+        var d = new Date(r.datum + 'T00:00:00');
+        return '<a href="' + esc(r.link) + '" class="agenda-card' + (i === 0 ? ' agenda-card--feature' : '') + ' in">' +
+          '<span class="agenda-card__date">' + d.getDate() + ' ' + maanden[d.getMonth()] + (r.tijd ? ' · ' + esc(r.tijd) : '') + '</span>' +
+          '<div class="agenda-card__body"><span class="agenda-card__label">' + esc(r.label || 'Aanmelden open') + '</span>' +
+          '<h3>' + esc(r.titel) + '</h3><p>' + esc(r.tekst) + '</p></div>' + pijl + '</a>';
+      }).join('');
+      return;
+    }
+
+    /* Niets open: wel of geen toestemming voor updates */
+    document.getElementById('ridesKop').textContent = 'Rijd je een volgende keer mee?';
+    document.getElementById('ridesIntro').textContent = 'We plannen steeds nieuwe ritten, in je eigen tempo en altijd samen.';
+    document.getElementById('welkomLeeg').hidden = false;
+    if (data.updates) {
+      document.getElementById('leegMetUpdates').hidden = false;
+    } else {
+      document.getElementById('updatesForm').hidden = false;
+      if (data.email) document.getElementById('updatesEmail').value = data.email;
+      document.getElementById('updatesNaam').value = data.naam || '';
+    }
   })();
 </script>
-<script src="/script.js?v=3"></script>
+<script src="/script.js?v=6"></script>
 </body>
 </html>

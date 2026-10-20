@@ -80,3 +80,32 @@
   .welkom-hero__cta .btn{width:100%;justify-content:center}
   .welkom-tile{min-height:240px}
 }
+
+/* QR-code naar de WhatsApp community: alleen op desktop */
+.welkom-qr{display:none}
+@media(min-width:901px) and (hover:hover){
+  .welkom-qr{
+    display:flex;align-items:center;gap:1.1rem;max-width:440px;margin:2rem auto 0;text-align:left;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:var(--r-lg);padding:1rem 1.2rem;
+  }
+  .welkom-qr img{width:112px;height:112px;background:#fff;border-radius:12px;padding:6px;flex:none}
+  .welkom-qr p{font-size:.95rem;color:rgba(255,255,255,.95);margin:0}
+}
+
+/* lege agenda: melding of vraag om op de hoogte te blijven */
+.welkom-leeg{
+  background:#fff;border:1.5px solid rgba(128,0,255,.12);border-radius:var(--r-lg);
+  padding:clamp(1.5rem,3vw,2.2rem);box-shadow:var(--shadow-sm);
+}
+.welkom-leeg__titel{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2rem);line-height:1.1;margin-bottom:.7rem}
+.welkom-leeg p{color:rgba(26,11,24,.75)}
+.welkom-leeg a{color:var(--purple);font-weight:700;border-bottom:1.5px solid rgba(128,0,255,.3)}
+.welkom-leeg__form > p{margin-bottom:1rem}
+.welkom-leeg__row{display:flex;gap:.7rem;flex-wrap:wrap}
+.welkom-leeg__row input{
+  flex:1 1 220px;min-width:0;padding:.95rem 1.1rem;border-radius:999px;font:inherit;
+  border:1.5px solid rgba(128,0,255,.25);background:var(--cream);
+}
+.welkom-leeg__row input:focus{outline:none;border-color:var(--purple)}
+.welkom-leeg [role="alert"]{margin-top:.8rem;color:#b00060;font-weight:600}
+@media(max-width:560px){.welkom-leeg__row .btn{width:100%;justify-content:center}}

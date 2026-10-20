@@ -3,6 +3,11 @@
   'use strict';
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* --- WhatsApp community: nieuwe link? Pas alleen deze regel aan; alle links met data-whatsapp volgen.
+         (De QR-code op /welkom is een plaatje, assets/whatsapp-qr.svg, die moet dan opnieuw.) --- */
+  const WHATSAPP_COMMUNITY = 'https://chat.whatsapp.com/JVFGGl7li9K3eHLuTD8bqc';
+  document.querySelectorAll('a[data-whatsapp]').forEach((a) => { a.href = WHATSAPP_COMMUNITY; });
+
   /* --- scroll reveal --- */
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reduce) {
@@ -203,10 +208,23 @@
       const checked = form.querySelector('input[name="situatie"]:checked');
       sessionStorage.setItem('vv-aanmelding', JSON.stringify({
         naam: form.elements.naam ? form.elements.naam.value : '',
-        situatie: checked ? checked.value : ''
+        email: form.elements.email ? form.elements.email.value : '',
+        situatie: checked ? checked.value : '',
+        updates: !!(form.elements.updates && form.elements.updates.checked)
       }));
     } catch (err) { /* opslag niet beschikbaar: welkomstpagina werkt ook zonder naam */ }
     window.location.href = '/welkom';
   };
   handleForm(document.getElementById('joinForm'), document.getElementById('joinSuccess'), ['naam', 'email'], toWelkom);
+
+  /* Welkomstpagina: alsnog toestemming geven voor updates over nieuwe ritten */
+  handleForm(document.getElementById('updatesForm'), document.getElementById('updatesSuccess'), ['email'], (form) => {
+    form.hidden = true;
+    document.getElementById('updatesSuccess').hidden = false;
+    try {
+      const d = JSON.parse(sessionStorage.getItem('vv-aanmelding') || '{}');
+      d.updates = true;
+      sessionStorage.setItem('vv-aanmelding', JSON.stringify(d));
+    } catch (err) { /* geen opslag: niet erg */ }
+  });
 })();
