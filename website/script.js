@@ -21,6 +21,19 @@
     reveals.forEach((el) => el.classList.add('in'));
   }
 
+  /* --- partner logos: endless marquee (clone the set once, slide -50%) --- */
+  document.querySelectorAll('.partners__row').forEach((row) => {
+    [...row.children].forEach((li) => {
+      const c = li.cloneNode(true);
+      c.setAttribute('data-clone', '');
+      c.setAttribute('aria-hidden', 'true');
+      c.querySelectorAll('img').forEach((img) => { img.alt = ''; });
+      row.appendChild(c);
+    });
+    row.style.setProperty('--marquee-duration', `${row.children.length * 2.6}s`);
+    row.classList.add('is-marquee');
+  });
+
   /* --- nav scrolled state --- */
   const nav = document.getElementById('nav');
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
