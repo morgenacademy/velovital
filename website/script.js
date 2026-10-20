@@ -135,7 +135,19 @@
     const error = document.createElement('p');
     error.setAttribute('role', 'alert');
     error.hidden = true;
-    form.appendChild(error);
+    error.className = 'form-melding';
+    const knop = form.querySelector('[type="submit"]');
+    if (knop) form.insertBefore(error, knop); else form.appendChild(error);
+    // Melding en witte rand weghalen zodra iemand het veld verbetert
+    requiredFields.forEach((field) => {
+      const f = form.elements[field];
+      if (!f) return;
+      f.addEventListener('input', () => {
+        f.style.borderColor = '';
+        f.removeAttribute('aria-invalid');
+        error.hidden = true;
+      });
+    });
     let sending = false;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -148,16 +160,30 @@
         return input.type === 'email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value) : Boolean(value);
       });
       if (!valid) {
+        const meldingen = [];
+        let eersteFout = null;
         requiredFields.forEach((field) => {
           const f = form.elements[field];
           if (!f) return;
           const value = f.value.trim();
           const fieldValid = f.type === 'email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value) : Boolean(value);
           if (!fieldValid) {
+            if (!eersteFout) eersteFout = f;
             f.style.borderColor = '#fff';
+            f.setAttribute('aria-invalid', 'true');
             f.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 300 });
+            if (f.type === 'email') {
+              meldingen.push(value
+                ? 'Let op: dit lijkt geen e-mailadres. Vul een adres in zoals naam@gmail.com.'
+                : 'Vul je e-mailadres in.');
+            } else {
+              meldingen.push('Vul je voornaam in.');
+            }
           }
         });
+        error.textContent = meldingen.join(' ');
+        error.hidden = meldingen.length === 0;
+        if (eersteFout) eersteFout.focus();
         return;
       }
       const showSuccess = () => {
