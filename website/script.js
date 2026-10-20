@@ -210,3 +210,89 @@
   };
   handleForm(document.getElementById('joinForm'), document.getElementById('joinSuccess'), ['naam', 'email'], toWelkom);
 })();
+
+/* ===== AGENDA & INSCHRIJVINGEN — automatisch op datum =====
+   Agenda-kaart (index.html, .agenda__list):
+     data-datum="2026-10-18T09:00"   start van het event (Nederlandse tijd)
+     data-eind="2026-10-18T13:00"    optioneel; zonder eind telt de hele dag
+     data-verlopen-tekst="..."       optioneel; vervangt de tekst als het event voorbij is
+     data-reserve                    reservekaart: alleen zichtbaar als er geen komende events zijn
+   Een kaart zonder data-datum (en zonder data-reserve) blijft altijd staan.
+   Er staan maximaal 3 kaarten: eerst de laatst verlopen events (doorgestreept), dan wat er nog komt.
+   Komt er iets nieuws bij, dan valt het oudste verlopen event bovenaan weg.
+
+   Inschrijfformulier:
+     data-sluit-op="2026-10-18T09:00"  vanaf dit moment is aanmelden gesloten
+     data-gesloten-tekst="..."          optionele eigen tekst in de gesloten-melding
+   Zet hetzelfde moment ook in netlify/edge-functions/event-capacity.js, dan weigert de server het ook. */
+(() => {
+  'use strict';
+  const MAX = 3;
+  const now = Date.now();
+  const parse = (value, endOfDay) => {
+    if (!value) return null;
+    const iso = value.length <= 10 ? value + (endOfDay ? 'T23:59:59' : 'T00:00') : value;
+    const t = new Date(iso).getTime();
+    return Number.isNaN(t) ? null : t;
+  };
+
+  /* --- agenda --- */
+  const list = document.querySelector('.agenda__list');
+  if (list) {
+    const cards = [...list.querySelectorAll('.agenda-card')].map((el, i) => {
+      const start = parse(el.dataset.datum, false);
+      const end = el.dataset.eind ? parse(el.dataset.eind, true)
+        : (el.dataset.datum ? parse(el.dataset.datum.slice(0, 10), true) : null);
+      return { el, i, start, end, reserve: el.hasAttribute('data-reserve') };
+    });
+    const dated = cards.filter((c) => c.start !== null && !c.reserve);
+    const past = dated.filter((c) => c.end < now).sort((a, b) => a.start - b.start);
+    const upcoming = dated.filter((c) => c.end >= now).sort((a, b) => a.start - b.start);
+    const always = cards.filter((c) => c.start === null && !c.reserve);
+    const reserve = cards.filter((c) => c.reserve);
+
+    let ahead = [...upcoming, ...always];
+    if (!upcoming.length) ahead = [...ahead, ...reserve];
+    ahead = ahead.slice(0, MAX);
+    const room = MAX - ahead.length;
+    const behind = room > 0 ? past.slice(-room) : [];
+    const shown = [...behind, ...ahead];
+
+    past.forEach(({ el }) => {
+      el.classList.add('agenda-card--past');
+      const label = el.querySelector('.agenda-card__label');
+      if (label) label.textContent = 'Geweest';
+      const text = el.querySelector('.agenda-card__body p');
+      if (text && el.dataset.verlopenTekst) text.textContent = el.dataset.verlopenTekst;
+      const title = el.querySelector('h3');
+      if (title) el.setAttribute('aria-label', `${title.textContent} (geweest)`);
+    });
+    cards.forEach(({ el }) => { el.hidden = !shown.some((c) => c.el === el); });
+    shown.forEach(({ el }, n) => {
+      el.style.setProperty('--d', `${0.06 * (n + 1)}s`);
+      list.appendChild(el);
+    });
+    list.classList.add('is-ready');
+  }
+
+  /* --- inschrijfformulieren sluiten na hun datum --- */
+  document.querySelectorAll('form[data-sluit-op]').forEach((form) => {
+    const closesAt = parse(form.dataset.sluitOp, false);
+    if (closesAt === null || now < closesAt) return;
+    form.hidden = true;
+    const box = document.createElement('div');
+    box.className = 'event__success event__closed';
+    box.setAttribute('role', 'status');
+    const h = document.createElement('h3');
+    h.textContent = 'Aanmelden is gesloten';
+    const p = document.createElement('p');
+    p.textContent = form.dataset.geslotenTekst ||
+      'Deze datum is voorbij, dus aanmelden kan niet meer. Wil je horen wanneer de volgende rit is? Word gratis community member.';
+    const a = document.createElement('a');
+    a.href = '/index.html#join';
+    a.className = 'btn btn--lg';
+    a.textContent = 'Word gratis community member';
+    box.append(h, p, a);
+    form.after(box);
+  });
+})();

@@ -546,3 +546,17 @@ h1,h2,h3{font-family:var(--font-d);font-weight:500;line-height:1.15;letter-spaci
   .event__form,.event__success{padding:1.5rem}
   .event-toggle__track{grid-template-columns:1fr}
 }
+
+/* ---------- agenda: verlopen events ---------- */
+.agenda-card--past{background:#faf8fb;border-color:rgba(26,11,24,.08);box-shadow:none}
+.agenda-card--past:hover{transform:none;box-shadow:var(--shadow-sm);border-color:rgba(26,11,24,.14)}
+.agenda-card--past .agenda-card__date{background:rgba(26,11,24,.12);color:rgba(26,11,24,.5);text-decoration:line-through;text-decoration-thickness:2px}
+.agenda-card--past .agenda-card__label{color:rgba(26,11,24,.45)}
+.agenda-card--past .agenda-card__body h3{
+  color:rgba(26,11,24,.5);text-decoration:line-through;text-decoration-color:var(--purple);text-decoration-thickness:2.5px;
+}
+.agenda-card--past .agenda-card__body p{color:rgba(26,11,24,.5)}
+.agenda-card--past .agenda-card__arrow{background:rgba(26,11,24,.06);color:rgba(26,11,24,.4)}
+.event__closed{min-height:0;gap:.6rem;justify-items:center}
+.event__closed .btn{margin-top:.6rem;--bg:#fff;color:var(--purple)}
+.event__closed .btn:hover{color:#fff}
