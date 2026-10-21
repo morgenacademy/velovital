@@ -1,0 +1,101 @@
+/* ===== VELO VITAL — bevestiging na aanmelden voor een event =====
+   Bouwt voort op welkom.css (zelfde hero, stappen en tegels). */
+
+/* eventkaartje in de hero */
+.ticket{
+  display:flex;align-items:center;gap:1.2rem;max-width:520px;margin:0 auto 2.2rem;text-align:left;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:var(--r-lg);
+  padding:1rem 1.3rem 1rem 1rem;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  box-shadow:0 24px 50px -28px rgba(26,11,24,.55);
+}
+.ticket__date{
+  flex:none;width:84px;height:92px;border-radius:22px;background:#fff;color:var(--purple);
+  display:grid;place-content:center;text-align:center;line-height:1;
+}
+.ticket__day{display:block;font-family:var(--font-d);font-size:2.4rem}
+.ticket__month{display:block;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;margin-top:.3rem}
+.ticket__body{min-width:0}
+.ticket__title{font-weight:800;font-size:1.08rem;color:#fff;margin:0 0 .25rem;line-height:1.3}
+.ticket__meta{font-size:.92rem;color:rgba(255,255,255,.92);margin:0}
+.ticket__chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0 0}
+.ticket__chips:empty{display:none}
+.ticket__chips span{
+  font-size:.76rem;font-weight:700;padding:.3rem .7rem;border-radius:999px;
+  background:rgba(255,255,255,.22);color:#fff;
+}
+
+/* knop "Zet in je agenda" is een <button> */
+.welkom-hero__cta button.btn{border:0;cursor:pointer;font:inherit;font-weight:800}
+
+/* vier stappen naast elkaar */
+.welkom-steps__grid.aan-steps{grid-template-columns:repeat(4,1fr)}
+.aan-steps .welkom-step:empty{display:none}
+
+/* praktische info + checklist */
+.aan-info{background:var(--cream);padding:0 clamp(1.1rem,4vw,2.2rem) 5.5rem}
+.aan-info__inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.15fr 1fr;gap:1.2rem;align-items:start}
+.aan-card{
+  background:#fff;border:1.5px solid rgba(128,0,255,.1);border-radius:var(--r-lg);
+  padding:clamp(1.6rem,3vw,2.4rem);box-shadow:var(--shadow-sm);
+}
+.aan-card h2{font-size:clamp(1.9rem,4vw,2.6rem);margin:.2rem 0 1.3rem}
+.aan-card--soft{background:var(--purple);color:#fff;border-color:transparent;position:relative;overflow:hidden;isolation:isolate}
+.aan-card--soft::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 90% 10%,rgba(255,140,35,.45),transparent 55%),radial-gradient(circle at 0% 100%,rgba(255,47,178,.45),transparent 55%)}
+.aan-card--soft .eyebrow{color:var(--orange)}
+.aan-list{display:grid;gap:1.1rem;margin:0}
+.aan-list div{display:grid;grid-template-columns:140px 1fr;gap:1rem;padding-bottom:1.1rem;border-bottom:1px solid rgba(128,0,255,.1)}
+.aan-list div:last-child{border-bottom:0;padding-bottom:0}
+.aan-list dt{font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--purple);padding-top:.15em}
+.aan-list dd{margin:0;color:rgba(26,11,24,.8)}
+.aan-list a,.aan-link{color:var(--purple);font-weight:700;border-bottom:1.5px solid rgba(128,0,255,.3)}
+.aan-check{list-style:none;padding:0;margin:0;display:grid;gap:.85rem}
+.aan-check li{position:relative;padding-left:2.2rem;color:rgba(255,255,255,.95)}
+.aan-check li::before{
+  content:"";position:absolute;left:0;top:.05em;width:1.45rem;height:1.45rem;border-radius:50%;background:#fff;
+  -webkit-mask:none;
+}
+.aan-check li::after{
+  content:"";position:absolute;left:.48rem;top:.33em;width:.42rem;height:.72rem;
+  border:solid var(--purple);border-width:0 2.6px 2.6px 0;transform:rotate(45deg);
+}
+
+/* WhatsApp + verhinderd + nieuwsbrief */
+.aan-extra{background:var(--cream);padding:0 clamp(1.1rem,4vw,2.2rem) 5.5rem}
+.aan-extra__inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr;gap:1.2rem;align-items:stretch}
+.aan-wa{
+  border-radius:var(--r-lg);padding:clamp(1.8rem,3.5vw,2.6rem);background:var(--grad);color:#fff;
+  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;box-shadow:var(--shadow);
+}
+.aan-wa .eyebrow{color:#fff;opacity:.95}
+.aan-wa h2{font-size:clamp(1.9rem,4vw,2.6rem);margin:.2rem 0 .6rem}
+.aan-wa p{color:rgba(255,255,255,.95);max-width:44ch;margin-bottom:1.4rem}
+.aan-wa .btn{--bg:#fff;color:var(--purple)}
+.aan-wa .btn:hover{background:#fff;color:var(--purple-d)}
+.aan-wa__qr{width:132px;height:132px;background:#fff;border-radius:16px;padding:8px}
+.aan-card--small{display:flex;flex-direction:column;justify-content:center}
+.aan-card--small p{color:rgba(26,11,24,.75);margin-bottom:1rem}
+.aan-nieuwsbrief{grid-column:1/-1;margin-top:0}
+
+@media(max-width:1000px){
+  .welkom-steps__grid.aan-steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .aan-info__inner,.aan-extra__inner{grid-template-columns:1fr}
+  .aan-wa{grid-template-columns:1fr}
+  .aan-wa__qr{display:none}
+}
+@media(max-width:560px){
+  .welkom-steps__grid.aan-steps{grid-template-columns:1fr}
+  .ticket{gap:.9rem;padding:.8rem}
+  .ticket__date{width:68px;height:78px;border-radius:18px}
+  .ticket__day{font-size:1.9rem}
+  .aan-list div{grid-template-columns:1fr;gap:.25rem}
+  .aan-wa .btn{width:100%;justify-content:center}
+}
+
+/* grid-kinderen mogen smaller worden dan hun inhoud (voorkomt zijwaarts scrollen op mobiel) */
+.aan-info__inner>*,.aan-extra__inner>*,.aan-wa>*{min-width:0}
+@media(max-width:900px){
+  .aan-info__inner,.aan-extra__inner,.aan-wa{grid-template-columns:minmax(0,1fr)}
+  .aan-wa .btn{white-space:normal}
+}

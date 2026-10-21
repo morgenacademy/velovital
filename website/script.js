@@ -159,18 +159,24 @@
       e.preventDefault();
       if (sending) return;
       error.hidden = true;
-      const valid = requiredFields.every((field) => {
-        const input = form.elements[field];
-        if (!input) return true;
-        const value = input.value.trim();
-        return input.type === 'email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value) : Boolean(value);
-      });
+      const fieldOk = (f) => {
+        if (!f || f.disabled) return true;
+        const value = f.value.trim();
+        if (f.type === 'email') return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value);
+        if (f.type === 'number') return value !== '' && +value >= +(f.min || 0) && +value <= +(f.max || Infinity);
+        return Boolean(value);
+      };
+      const valid = requiredFields.every((field) => fieldOk(form.elements[field]));
       if (!valid) {
+        const lengte = form.elements.lengte;
+        if (lengte && requiredFields.includes('lengte') && !fieldOk(lengte)) {
+          error.textContent = 'Vul je lengte in centimeters in, bijvoorbeeld 172.';
+          error.hidden = false;
+        }
         requiredFields.forEach((field) => {
           const f = form.elements[field];
           if (!f) return;
-          const value = f.value.trim();
-          const fieldValid = f.type === 'email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value) : Boolean(value);
+          const fieldValid = fieldOk(f);
           if (!fieldValid) {
             f.style.borderColor = '#fff';
             f.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 300 });
@@ -230,7 +236,60 @@
   };
   handleForm(document.getElementById('joinForm'), document.getElementById('joinSuccess'), ['naam', 'email'], toWelkom);
 
-  /* Welkomstpagina: alsnog aanmelden voor de nieuwsbrief */
+  /* Aanmelden voor een event: elk formulier met een verborgen veld "eventcode".
+     - Kiest ze "Regel maar een fiets voor me", dan verschijnt het veld lengte (verplicht).
+     - Na verzenden door naar de bevestigingspagina velovital.nl/aangemeld?event=<eventcode>.
+     De eventcode moet ook als id in rides.js staan. */
+  document.querySelectorAll('form').forEach((form) => {
+    if (!form.elements.eventcode) return;
+    const code = form.elements.eventcode.value;
+    const required = ['voornaam', 'naam', 'email'].filter((n) => form.elements[n]);
+
+    const lengteBlok = form.querySelector('[data-lengte]');
+    const lengte = form.elements.lengte;
+    if (lengteBlok && lengte) {
+      const toonLengte = () => {
+        const r = form.querySelector('input[name="fiets"]:checked');
+        const nodig = !!r && r.value === 'fiets-regelen';
+        lengteBlok.hidden = !nodig;
+        lengte.disabled = !nodig;
+        const i = required.indexOf('lengte');
+        if (nodig && i === -1) required.push('lengte');
+        if (!nodig && i !== -1) required.splice(i, 1);
+      };
+      form.querySelectorAll('input[name="fiets"]').forEach((r) => r.addEventListener('change', () => {
+        toonLengte();
+        if (!lengte.disabled) lengte.focus();
+      }));
+      toonLengte();
+    }
+
+    const toAangemeld = (f) => {
+      const keuze = (name) => {
+        const r = f.querySelector(`input[name="${name}"]:checked`);
+        const label = r && r.closest('label') ? r.closest('label').textContent.trim() : '';
+        return { value: r ? r.value : '', label };
+      };
+      const fiets = keuze('fiets');
+      const groep = keuze('groep');
+      try {
+        sessionStorage.setItem('vv-event-aanmelding', JSON.stringify({
+          event: code,
+          voornaam: f.elements.voornaam ? f.elements.voornaam.value : (f.elements.naam ? f.elements.naam.value : ''),
+          email: f.elements.email ? f.elements.email.value : '',
+          fiets: fiets.value,
+          fietsLabel: fiets.label,
+          groepLabel: groep.label,
+          lengte: lengte && !lengte.disabled ? lengte.value.trim() : '',
+          updates: !!(f.elements.updates && f.elements.updates.checked)
+        }));
+      } catch (err) { /* geen opslag: de pagina werkt ook zonder naam */ }
+      window.location.href = '/aangemeld?event=' + encodeURIComponent(code);
+    };
+    handleForm(form, null, required, toAangemeld);
+  });
+
+  /* Welkomst- en bevestigingspagina: alsnog aanmelden voor de nieuwsbrief */
   handleForm(document.getElementById('nieuwsbriefForm'), document.getElementById('nieuwsbriefSuccess'), ['email'], (form) => {
     form.hidden = true;
     document.getElementById('nieuwsbriefSuccess').hidden = false;

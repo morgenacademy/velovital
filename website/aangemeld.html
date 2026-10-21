@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Je bent erbij · Velo Vital</title>
+<meta name="description" content="Je aanmelding voor een Velo Vital event is binnen. Zo werkt het verder.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Montserrat:ital,wght@0,300..800;1,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=7">
+<link rel="stylesheet" href="/welkom.css?v=3">
+<link rel="stylesheet" href="/aangemeld.css?v=1">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo" aria-label="Velo Vital home">
+      <span class="nav__logo-mark">Velo</span><span class="nav__logo-mark nav__logo-mark--it">Vital</span>
+    </a>
+    <nav class="nav__links" aria-label="Hoofdmenu">
+      <a href="/#agenda">Agenda</a>
+      <a href="/#opties">Hoe het werkt</a>
+      <a href="/verhalen.html">Verhalen</a>
+      <a href="/vakanties.html">Fietsvakanties</a>
+    </nav>
+    <a href="/#agenda" class="btn btn--sm nav__cta">Bekijk de agenda</a>
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="welkom-hero">
+  <div class="welkom-hero__bg" aria-hidden="true">
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="blob blob--3"></span>
+  </div>
+  <div class="welkom-hero__content">
+    <div class="welkom-hero__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="38" height="38"><path d="M5 13l4 4 10-11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="eyebrow reveal">Je staat op de lijst · F#CK TMRW · RIDE2DAY</span>
+    <h1 class="reveal" style="--d:.06s">Leuk dat je erbij bent<span id="aanNaam"></span>!</h1>
+    <p class="welkom-hero__sub reveal" style="--d:.12s" id="aanSub">Je aanmelding is binnen. We kijken ernaar uit om samen met jou op de fiets te stappen.</p>
+
+    <!-- eventkaartje: gevuld vanuit rides.js -->
+    <div class="ticket reveal" style="--d:.16s" id="aanTicket" hidden>
+      <div class="ticket__date" aria-hidden="true">
+        <span class="ticket__day" id="ticketDag"></span>
+        <span class="ticket__month" id="ticketMaand"></span>
+      </div>
+      <div class="ticket__body">
+        <p class="ticket__title" id="ticketTitel"></p>
+        <p class="ticket__meta" id="ticketMeta"></p>
+        <p class="ticket__chips" id="ticketChips"></p>
+      </div>
+    </div>
+
+    <div class="welkom-hero__cta reveal" style="--d:.2s">
+      <button type="button" class="btn btn--lg magnetic" id="aanAgenda" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M3.5 10h17M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Zet in je agenda
+      </button>
+      <a href="#zo-werkt-het" class="btn btn--lg btn--ghost">Zo werkt het</a>
+    </div>
+  </div>
+</section>
+
+<!-- ZO WERKT HET -->
+<section class="welkom-steps" id="zo-werkt-het">
+  <div class="welkom-steps__inner">
+    <div class="welkom-steps__head reveal">
+      <span class="eyebrow">Zo werkt het</span>
+      <h2 id="stappenKop">Van aanmelding naar de finish</h2>
+      <p>Je hoeft nu niets meer te doen. Je krijgt dit overzicht ook in je mail, en vlak voor het event sturen we je nog de laatste praktische info.</p>
+    </div>
+    <div class="welkom-steps__grid aan-steps" id="aanStappen"></div>
+  </div>
+</section>
+
+<!-- FIETS GEREGELD (alleen bij keuze: regel een fiets) -->
+<section class="welkom-fiets" id="aanFiets" hidden>
+  <div class="welkom-fiets__card reveal">
+    <div>
+      <span class="eyebrow">Je koos voor een fiets van ons</span>
+      <h2>Wij regelen je fiets</h2>
+      <p id="aanFietsTekst">Daar hoef jij niets meer voor te doen. Er staat een fiets voor je klaar die bij je lengte past. Zo kun je meteen opstappen.</p>
+    </div>
+    <a href="/start-met-een-fiets.html" class="btn btn--lg">Zo werkt een fiets lenen
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- PRAKTISCH + MEENEMEN -->
+<section class="aan-info" id="aanInfo" hidden>
+  <div class="aan-info__inner">
+    <div class="aan-card reveal" id="aanPraktisch">
+      <span class="eyebrow">Praktische info</span>
+      <h2>Goed om te weten</h2>
+      <dl class="aan-list" id="aanPraktischLijst"></dl>
+    </div>
+    <div class="aan-card aan-card--soft reveal" style="--d:.06s" id="aanMeenemen" hidden>
+      <span class="eyebrow">Checklist</span>
+      <h2>Neem dit mee</h2>
+      <ul class="aan-check" id="aanMeenemenLijst"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY + VERHINDERD -->
+<section class="aan-extra">
+  <div class="aan-extra__inner">
+    <div class="aan-wa reveal">
+      <div>
+        <span class="eyebrow">Alvast kennismaken?</span>
+        <h2>Kom in de WhatsApp community</h2>
+        <p>Daar zie je wie er nog meer meefietst en hoor je als eerste over nieuwe rides.</p>
+        <a href="https://chat.whatsapp.com/JVFGGl7li9K3eHLuTD8bqc" data-whatsapp class="btn btn--lg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19l-4 1z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+          Join de WhatsApp community
+        </a>
+      </div>
+      <img class="aan-wa__qr" src="/assets/whatsapp-qr.svg" alt="QR-code naar de Velo Vital WhatsApp community" width="132" height="132">
+    </div>
+
+    <div class="aan-card aan-card--small reveal" style="--d:.06s">
+      <p class="welkom-leeg__titel">Kun je toch niet?</p>
+      <p>Geen probleem, het kan iedereen gebeuren. Laat het ons even weten, dan geven we je plek aan een andere vrouw.</p>
+      <a class="aan-link" id="aanAfmelden" href="mailto:info@velovital.nl?subject=Ik%20kan%20toch%20niet">Mail naar info@velovital.nl</a>
+    </div>
+
+    <!-- nieuwsbrief: alleen als het vinkje bij aanmelden uit stond -->
+    <div class="welkom-leeg welkom-leeg--nieuwsbrief aan-nieuwsbrief reveal" id="aanNieuwsbrief" hidden>
+      <form class="welkom-leeg__form" id="nieuwsbriefForm" name="join-nieuwsbrief" method="POST" action="/aangemeld" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="join-nieuwsbrief">
+        <p class="join__bot" aria-hidden="true"><label>Niet invullen <input name="bot-field"></label></p>
+        <input type="hidden" name="nieuwsbrief" value="ja">
+        <input type="hidden" name="naam" id="nieuwsbriefNaam">
+        <p class="welkom-leeg__titel">Ook onze nieuwsbrief?</p>
+        <p>Verhalen van andere vrouwen, fietsvakanties en ander nieuws van Velo Vital. Af en toe een mail, afmelden kan altijd met één klik.</p>
+        <div class="welkom-leeg__row">
+          <input type="email" name="email" id="nieuwsbriefEmail" placeholder="Je e-mailadres" aria-label="Je e-mailadres" autocomplete="email" required>
+          <button type="submit" class="btn">Ja, stuur me de nieuwsbrief</button>
+        </div>
+      </form>
+      <div id="nieuwsbriefSuccess" hidden>
+        <p><strong>Top, je staat op de lijst voor de nieuwsbrief.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERDER ONTDEKKEN -->
+<section class="welkom-more">
+  <div class="welkom-more__inner">
+    <span class="eyebrow reveal">Kom alvast in de sfeer</span>
+    <h2 class="reveal">Leer de community kennen</h2>
+    <div class="welkom-more__grid">
+      <a href="/verhalen.html" class="welkom-tile reveal" style="--d:.04s">
+        <img src="/assets/community-1-web.jpg" alt="Vrouwen van Velo Vital samen op de fiets" loading="lazy">
+        <div class="welkom-tile__body">
+          <h3>Verhalen</h3>
+          <p>Lees hoe andere vrouwen hun eerste stappen op de fiets zetten.</p>
+        </div>
+      </a>
+      <a href="/vakanties.html" class="welkom-tile reveal" style="--d:.1s">
+        <img src="/assets/finish-parijs.jpg" alt="Finish van de Velo Vital fietstocht naar Parijs" loading="lazy">
+        <div class="welkom-tile__body">
+          <h3>Fietsvakanties</h3>
+          <p>Van Den Bosch naar Parijs, Berlijn of Londen. Samen onderweg.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">Velo<em>Vital</em></span>
+      <p>Fietscommunity voor vrouwen in 's-Hertogenbosch en omgeving. Samen bewegen, samen groeien.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="/#agenda">Agenda</a>
+      <a href="/#opties">Hoe het werkt</a>
+      <a href="/#lidmaatschap">Lidmaatschap</a>
+      <a href="/verhalen.html">Verhalen</a>
+      <a href="/vakanties.html">Fietsvakanties</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+  </div>
+  <div class="footer__bar">
+    <span>Website gemaakt in 2026 &middot; &copy; <a href="https://morgenacademy.nl" target="_blank" rel="noopener">Morgen</a>, techpartner van Velo Vital</span>
+    <span>Stichting Velo Vital · KvK 60618167 · <a href="mailto:info@velovital.nl">info@velovital.nl</a> &middot; <a href="/privacy">Privacy</a></span>
+  </div>
+</footer>
+
+<script src="/rides.js?v=2"></script>
+<script>
+  /* Bevestiging na aanmelden voor een event.
+     Event-gegevens komen uit rides.js (?event=<id>), naam en keuzes uit de net verstuurde aanmelding. */
+  (function () {
+    var data = null;
+    try { data = JSON.parse(sessionStorage.getItem('vv-event-aanmelding') || 'null'); } catch (e) {}
+    data = data || {};
+
+    var id = new URLSearchParams(location.search).get('event') || data.event || '';
+    var ev = (window.VV_RIDES || []).filter(function (r) { return r.id && r.id === id; })[0] || null;
+    var $ = function (x) { return document.getElementById(x); };
+    var esc = function (t) { var d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; };
+    var dagen = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'];
+    var maanden = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
+    var tijdVan = function (t) { var m = String(t || '').match(/(\d{1,2})[:.](\d{2})/); return m ? [+m[1], +m[2]] : null; };
+    var tijdTekst = function (t) { var m = tijdVan(t); return m ? (m[0] < 10 ? '0' : '') + m[0] + ':' + (m[1] < 10 ? '0' : '') + m[1] : ''; };
+
+    /* naam */
+    var naam = (data.voornaam || data.naam || '').trim().split(/\s+/)[0];
+    if (naam) {
+      naam = naam.charAt(0).toUpperCase() + naam.slice(1);
+      $('aanNaam').textContent = ', ' + naam;
+      document.title = 'Je bent erbij, ' + naam + ' · Velo Vital';
+    }
+
+    /* fiets geregeld? */
+    if (data.fiets === 'fiets-regelen') {
+      $('aanFiets').hidden = false;
+      if (data.lengte) $('aanFietsTekst').textContent = 'Daar hoef jij niets meer voor te doen. Er staat een fiets voor je klaar die past bij jouw ' + data.lengte + ' cm. Zo kun je meteen opstappen.';
+    }
+
+    /* nieuwsbrief aanbieden als het vinkje uit stond */
+    if (data.email && !data.updates && !data.nieuwsbrief) {
+      $('aanNieuwsbrief').hidden = false;
+      $('nieuwsbriefEmail').value = data.email;
+      $('nieuwsbriefNaam').value = data.voornaam || data.naam || '';
+    }
+
+    /* stappen */
+    var stappen = (ev && ev.stappen) || [
+      { titel: 'Kom op tijd, de koffie staat klaar', tekst: 'We beginnen rustig met koffie en een praatje, zodat je de andere vrouwen alvast leert kennen.' },
+      { titel: 'Korte fietscheck', tekst: 'We kijken samen of je fiets goed is afgesteld en verdelen ons in groepjes die bij je tempo passen.' },
+      { titel: 'Samen op pad', tekst: 'Onze begeleiders rijden mee. Niemand wordt achtergelaten, we wachten altijd op elkaar.' },
+      { titel: 'Napraten', tekst: 'We eindigen waar we begonnen. Moe, voldaan en misschien wel met een paar nieuwe fietsmaatjes.' }
+    ];
+    $('aanStappen').innerHTML = stappen.map(function (s, i) {
+      return '<article class="welkom-step reveal" style="--d:' + (i * 0.05).toFixed(2) + 's"><h3>' + esc(s.titel) + '</h3><p>' + esc(s.tekst) + '</p></article>';
+    }).join('');
+
+    if (!ev) return; /* onbekend event: algemene bevestiging is genoeg */
+
+    /* eventkaartje in de hero */
+    var d = new Date(ev.datum + 'T00:00:00');
+    var datumTekst = dagen[d.getDay()] + ' ' + d.getDate() + ' ' + maanden[d.getMonth()];
+    var tijd = tijdTekst(ev.tijd);
+    $('ticketDag').textContent = d.getDate();
+    $('ticketMaand').textContent = maanden[d.getMonth()].slice(0, 3);
+    $('ticketTitel').textContent = ev.titel;
+    $('ticketMeta').textContent = datumTekst + (tijd ? ' · vanaf ' + tijd + ' uur' : '') + (ev.locatie ? ' · ' + ev.locatie : '');
+    var chips = [data.groepLabel, data.fiets === 'fiets-regelen' ? 'Fiets staat klaar' + (data.lengte ? ' · ' + data.lengte + ' cm' : '') : data.fietsLabel].filter(Boolean);
+    $('ticketChips').innerHTML = chips.map(function (c) { return '<span>' + esc(c) + '</span>'; }).join('');
+    $('aanTicket').hidden = false;
+    $('aanSub').textContent = 'Je aanmelding is binnen. Zet de datum vast in je agenda, dan zien we je op ' + datumTekst + '.';
+    $('aanAfmelden').href = 'mailto:info@velovital.nl?subject=' + encodeURIComponent('Ik kan toch niet: ' + ev.titel + ' (' + datumTekst + ')');
+
+    /* praktische info */
+    var rij = function (label, waarde) { return waarde ? '<div><dt>' + label + '</dt><dd>' + waarde + '</dd></div>' : ''; };
+    var kaart = ev.adres ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent((ev.locatie ? ev.locatie + ', ' : '') + ev.adres) : '';
+    $('aanPraktischLijst').innerHTML =
+      rij('Wanneer', esc(datumTekst.charAt(0).toUpperCase() + datumTekst.slice(1)) + (tijd ? ', verzamelen vanaf ' + tijd + ' uur' : '')) +
+      rij('Waar', ev.locatie || ev.adres ? esc(ev.locatie || '') + (ev.adres ? (ev.locatie ? '<br>' : '') + '<a href="' + kaart + '" target="_blank" rel="noopener">' + esc(ev.adres) + '</a>' : '') : '') +
+      rij('Bijdrage', esc(ev.bijdrage)) +
+      rij('Bereikbaarheid', esc(ev.bereik));
+    if (ev.meenemen && ev.meenemen.length) {
+      $('aanMeenemenLijst').innerHTML = ev.meenemen.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('');
+      $('aanMeenemen').hidden = false;
+    }
+    $('aanInfo').hidden = false;
+
+    /* agenda-uitnodiging (.ics) */
+    var start = tijdVan(ev.tijd);
+    if (start) {
+      var eind = tijdVan(ev.eind) || [Math.min(start[0] + 3, 23), start[1]];
+      var p = function (n) { return (n < 10 ? '0' : '') + n; };
+      var dag = ev.datum.replace(/-/g, '');
+      var ics = function (t) { return String(t || '').replace(/([,;\\])/g, '\\$1').replace(/\n/g, '\\n'); };
+      $('aanAgenda').hidden = false;
+      $('aanAgenda').addEventListener('click', function () {
+        var inhoud = [
+          'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Velo Vital//NL', 'CALSCALE:GREGORIAN',
+          'BEGIN:VTIMEZONE', 'TZID:Europe/Amsterdam',
+          'BEGIN:DAYLIGHT', 'TZOFFSETFROM:+0100', 'TZOFFSETTO:+0200', 'TZNAME:CEST', 'DTSTART:19700329T020000', 'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU', 'END:DAYLIGHT',
+          'BEGIN:STANDARD', 'TZOFFSETFROM:+0200', 'TZOFFSETTO:+0100', 'TZNAME:CET', 'DTSTART:19701025T030000', 'RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU', 'END:STANDARD',
+          'END:VTIMEZONE',
+          'BEGIN:VEVENT',
+          'UID:' + ev.id + '@velovital.nl',
+          'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, ''),
+          'DTSTART;TZID=Europe/Amsterdam:' + dag + 'T' + p(start[0]) + p(start[1]) + '00',
+          'DTEND;TZID=Europe/Amsterdam:' + dag + 'T' + p(eind[0]) + p(eind[1]) + '00',
+          'SUMMARY:' + ics('Velo Vital · ' + ev.titel),
+          'LOCATION:' + ics([ev.locatie, ev.adres].filter(Boolean).join(', ')),
+          'DESCRIPTION:' + ics((ev.tekst || '') + '\nVragen? info@velovital.nl'),
+          'URL:https://velovital.nl' + (ev.link || ''),
+          'END:VEVENT', 'END:VCALENDAR'
+        ].join('\r\n');
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([inhoud], { type: 'text/calendar;charset=utf-8' }));
+        a.download = 'velo-vital-' + ev.id + '.ics';
+        document.body.appendChild(a); a.click(); a.remove();
+      });
+    }
+  })();
+</script>
+<script src="/script.js?v=8"></script>
+</body>
+</html>

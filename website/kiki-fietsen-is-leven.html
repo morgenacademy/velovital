@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Montserrat:ital,wght@0,300..800;1,400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=5">
+<link rel="stylesheet" href="/styles.css?v=7">
 </head>
 <body>
 
@@ -75,6 +75,7 @@
         <input type="text" name="voornaam" placeholder="Je voornaam" aria-label="Je voornaam" autocomplete="given-name" required>
         <input type="email" name="email" placeholder="Je e-mailadres" aria-label="Je e-mailadres" required>
         <input type="hidden" name="eventdatum" value="zondag-18-oktober-2026-verzamelen-09-00">
+        <input type="hidden" name="eventcode" value="kiki-2026-10-18">
 
         <fieldset class="event-toggle">
           <legend>Hoe kom je op de fiets?</legend>
@@ -89,6 +90,11 @@
             </label>
           </div>
         </fieldset>
+
+        <div class="event__lengte" data-lengte hidden>
+          <label for="lengte">Hoe lang ben je? Dan zetten we een fiets klaar die bij je past.</label>
+          <input type="number" id="lengte" name="lengte" inputmode="numeric" min="130" max="215" placeholder="Je lengte in cm" disabled>
+        </div>
 
         <fieldset class="event-toggle">
           <legend>Welke groep past bij jou?</legend>
@@ -148,6 +154,6 @@
   </div>
 </footer>
 
-<script src="/script.js?v=3"></script>
+<script src="/script.js?v=8"></script>
 </body>
 </html>
