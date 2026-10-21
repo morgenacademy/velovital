@@ -5,8 +5,8 @@
    Bevestigingspagina na aanmelden voor een event (velovital.nl/aangemeld):
    het formulier op de eventpagina krijgt een verborgen veld
      <input type="hidden" name="eventcode" value="<id>">
-   en stuurt dan vanzelf door naar /aangemeld?event=<id>. Die pagina én de bevestigingsmail
-   (Apps Script) halen alles hieronder op aan de hand van die id.
+   en stuurt dan vanzelf door naar /aangemeld?event=<id>. Die pagina haalt alles hieronder
+   op aan de hand van die id.
    Velden die je weglaat, worden gewoon niet getoond.
      id        unieke korte naam, bijv. 'kiki-2026-10-18'
      eind      eindtijd voor de agenda-uitnodiging, bijv. '12:30'
