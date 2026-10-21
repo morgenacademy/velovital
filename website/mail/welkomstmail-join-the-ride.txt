@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Welkom bij Velo Vital</title>
+<!--
+  VELO VITAL · Welkomstmail Join the ride (MailerLite, HTML-editor)
+  - Plakken in MailerLite: nieuwe automation-mail → editor "Custom HTML" → alles vervangen door deze code.
+  - {$name} wordt de naam uit het aanmeldformulier. {$unsubscribe} is de afmeldlink (verplicht).
+  - Teksten aanpassen: alleen de woorden tussen de > en < veranderen, de rest laten staan.
+  - WhatsApp-link staat 2x in deze mail (zoek op chat.whatsapp.com) en moet mee veranderen als de link ooit wijzigt.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:"Tan Meringue";src:url("https://velovital.nl/assets/fonts/TanMeringue.woff2") format("woff2"),url("https://velovital.nl/assets/fonts/TanMeringue.ttf") format("truetype");font-weight:normal;font-style:normal;}
+  body{margin:0;padding:0;background:#fff6ef;-webkit-text-size-adjust:100%;}
+  table{border-collapse:collapse;}
+  img{border:0;display:block;max-width:100%;height:auto;}
+  a{text-decoration:none;}
+  .kop{font-family:"Tan Meringue",Georgia,"Times New Roman",serif;font-weight:normal;}
+  .txt{font-family:Montserrat,Arial,Helvetica,sans-serif;}
+  @media (max-width:620px){
+    .pad{padding-left:16px!important;padding-right:16px!important;}
+    .h1{font-size:44px!important;}
+    .h2{font-size:30px!important;}
+    .knop{display:block!important;text-align:center!important;}
+    .tegel{display:block!important;width:100%!important;padding:0 0 14px!important;}
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#fff6ef;">
+
+<!-- voorvertoningstekst in de inbox -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">Je bent binnen! Kom erbij in de WhatsApp community en zie hoe het verder gaat.</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fff6ef;">
+<tr><td align="center" style="padding:24px 12px 8px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">
+
+  <!-- ===== KOP ===== -->
+  <tr><td class="pad" style="padding:0 20px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FF5C8A;background-image:linear-gradient(155deg,#FF2FB2 0%,#FF5C8A 38%,#FF7A54 68%,#FF8C23 100%);border-radius:30px;">
+      <tr><td align="center" style="padding:30px 26px 36px;">
+        <p class="kop" style="margin:0 0 26px;font-family:'Tan Meringue',Georgia,serif;font-size:26px;line-height:1;color:#ffffff;">Velo Vital</p>
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 20px;"><tr>
+          <td align="center" valign="middle" width="64" height="64" style="width:64px;height:64px;border-radius:32px;background:#ffffff;color:#8000FF;font-family:Arial,sans-serif;font-size:30px;font-weight:bold;line-height:64px;">&#10003;</td>
+        </tr></table>
+        <p class="txt" style="margin:0 0 12px;font-family:Montserrat,Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#ffffff;">Je bent binnen · F#CK TMRW · RIDE2DAY</p>
+        <h1 class="kop h1" style="margin:0 0 16px;font-family:'Tan Meringue',Georgia,serif;font-weight:normal;font-size:56px;line-height:1.02;color:#ffffff;">Welkom, {$name}!</h1>
+        <p class="txt" style="margin:0 auto 28px;max-width:430px;font-family:Montserrat,Arial,sans-serif;font-size:16px;line-height:1.6;color:#ffffff;">Wat fijn dat je erbij bent. Je aanmelding is binnen en je bent nu officieel onderdeel van de Velo Vital community.</p>
+        <a class="knop txt" href="https://chat.whatsapp.com/JVFGGl7li9K3eHLuTD8bqc" style="display:inline-block;background:#ffffff;color:#8000FF;font-family:Montserrat,Arial,sans-serif;font-size:16px;font-weight:800;padding:16px 30px;border-radius:999px;">Join de WhatsApp community</a>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ===== ZO GAAT HET VERDER ===== -->
+  <tr><td class="pad" style="padding:0 20px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #eee0ff;border-radius:30px;">
+      <tr><td style="padding:30px 28px 14px;">
+        <p class="txt" style="margin:0 0 8px;font-family:Montserrat,Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#8000FF;">Zo gaat het verder</p>
+        <h2 class="kop h2" style="margin:0 0 10px;font-family:'Tan Meringue',Georgia,serif;font-weight:normal;font-size:36px;line-height:1.08;color:#1a0b18;">Van aanmelding naar je eerste ride</h2>
+        <p class="txt" style="margin:0 0 24px;font-family:Montserrat,Arial,sans-serif;font-size:15px;line-height:1.6;color:#5c4d5a;">Eén ding kun je nu al doen: kom erbij in onze WhatsApp community.</p>
+
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="56" valign="top" style="padding:0 14px 20px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center" valign="middle" width="46" height="46" class="kop" style="width:46px;height:46px;border-radius:23px;background:#FF5C8A;background-image:linear-gradient(155deg,#FF2FB2,#FF8C23);color:#ffffff;font-family:'Tan Meringue',Georgia,serif;font-size:22px;line-height:46px;">1</td></tr></table>
+            </td>
+            <td valign="top" style="padding:0 0 20px;">
+              <p class="txt" style="margin:3px 0 4px;font-family:Montserrat,Arial,sans-serif;font-size:16px;font-weight:800;color:#1a0b18;">Kom in de WhatsApp community</p>
+              <p class="txt" style="margin:0;font-family:Montserrat,Arial,sans-serif;font-size:15px;line-height:1.6;color:#5c4d5a;">Daar ontmoet je de andere vrouwen en hoor je als eerste over nieuwe rides. <a href="https://chat.whatsapp.com/JVFGGl7li9K3eHLuTD8bqc" style="color:#8000FF;font-weight:800;text-decoration:underline;">Join de community</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="56" valign="top" style="padding:0 14px 20px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center" valign="middle" width="46" height="46" class="kop" style="width:46px;height:46px;border-radius:23px;background:#FF5C8A;background-image:linear-gradient(155deg,#FF2FB2,#FF8C23);color:#ffffff;font-family:'Tan Meringue',Georgia,serif;font-size:22px;line-height:46px;">2</td></tr></table>
+            </td>
+            <td valign="top" style="padding:0 0 20px;">
+              <p class="txt" style="margin:3px 0 4px;font-family:Montserrat,Arial,sans-serif;font-size:16px;font-weight:800;color:#1a0b18;">Kies een rit in de agenda</p>
+              <p class="txt" style="margin:0;font-family:Montserrat,Arial,sans-serif;font-size:15px;line-height:1.6;color:#5c4d5a;">Zodra er een nieuwe rit gepland staat, krijg je van ons een mail. Je kunt ook zelf alvast kijken. <a href="https://velovital.nl/#agenda" style="color:#8000FF;font-weight:800;text-decoration:underline;">Bekijk de agenda</a></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="56" valign="top" style="padding:0 14px 20px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center" valign="middle" width="46" height="46" class="kop" style="width:46px;height:46px;border-radius:23px;background:#FF5C8A;background-image:linear-gradient(155deg,#FF2FB2,#FF8C23);color:#ffffff;font-family:'Tan Meringue',Georgia,serif;font-size:22px;line-height:46px;">3</td></tr></table>
+            </td>
+            <td valign="top" style="padding:0 0 20px;">
+              <p class="txt" style="margin:3px 0 4px;font-family:Montserrat,Arial,sans-serif;font-size:16px;font-weight:800;color:#1a0b18;">Stap op en rijd mee</p>
+              <p class="txt" style="margin:0;font-family:Montserrat,Arial,sans-serif;font-size:15px;line-height:1.6;color:#5c4d5a;">Je fietst met vrouwen die net als jij meer willen bewegen, in hun eigen tempo. Samen is alles leuker.</p>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ===== LEENFIETS ===== -->
+  <tr><td class="pad" style="padding:0 20px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#8000FF;background-image:radial-gradient(circle at 88% 15%,rgba(255,140,35,.55),rgba(255,140,35,0) 55%),radial-gradient(circle at 8% 95%,rgba(255,47,178,.55),rgba(255,47,178,0) 55%);border-radius:30px;">
+      <tr><td style="padding:30px 28px 32px;">
+        <p class="txt" style="margin:0 0 8px;font-family:Montserrat,Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#FF8C23;">Nog geen eigen fiets?</p>
+        <h2 class="kop h2" style="margin:0 0 10px;font-family:'Tan Meringue',Georgia,serif;font-weight:normal;font-size:36px;line-height:1.08;color:#ffffff;">Wij regelen je fiets</h2>
+        <p class="txt" style="margin:0 0 22px;font-family:Montserrat,Arial,sans-serif;font-size:15px;line-height:1.6;color:#ffffff;">Je hoeft er niets van te weten. We zorgen voor een fiets die bij je past en helpen je op weg.</p>
+        <a class="knop txt" href="https://velovital.nl/start-met-een-fiets.html" style="display:inline-block;background:#ffffff;color:#8000FF;font-family:Montserrat,Arial,sans-serif;font-size:15px;font-weight:800;padding:14px 26px;border-radius:999px;">Start met een fiets &rarr;</a>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ===== LEER DE COMMUNITY KENNEN ===== -->
+  <tr><td class="pad" style="padding:18px 20px 6px;">
+    <p class="txt" style="margin:0 0 8px;font-family:Montserrat,Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#8000FF;">Kom alvast in de sfeer</p>
+    <h2 class="kop h2" style="margin:0 0 18px;font-family:'Tan Meringue',Georgia,serif;font-weight:normal;font-size:36px;line-height:1.08;color:#1a0b18;">Leer de community kennen</h2>
+  </td></tr>
+  <tr><td class="pad" style="padding:0 20px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td class="tegel" width="50%" valign="top" style="padding:0 7px 0 0;">
+        <a href="https://velovital.nl/verhalen.html" style="display:block;background:#ffffff;border-radius:24px;overflow:hidden;border:1px solid #eee0ff;">
+          <img src="https://velovital.nl/assets/community-1-web.jpg" width="273" alt="Vrouwen van Velo Vital samen op de fiets" style="width:100%;height:170px;object-fit:cover;border-radius:24px 24px 0 0;">
+          <span style="display:block;padding:16px 18px 18px;">
+            <span class="kop" style="display:block;font-family:'Tan Meringue',Georgia,serif;font-size:26px;line-height:1.1;color:#1a0b18;margin-bottom:4px;">Verhalen</span>
+            <span class="txt" style="display:block;font-family:Montserrat,Arial,sans-serif;font-size:14px;line-height:1.5;color:#5c4d5a;">Lees hoe andere vrouwen hun eerste stappen op de fiets zetten.</span>
+          </span>
+        </a>
+      </td>
+      <td class="tegel" width="50%" valign="top" style="padding:0 0 0 7px;">
+        <a href="https://velovital.nl/vakanties.html" style="display:block;background:#ffffff;border-radius:24px;overflow:hidden;border:1px solid #eee0ff;">
+          <img src="https://velovital.nl/assets/finish-parijs.jpg" width="273" alt="Finish van de Velo Vital fietstocht naar Parijs" style="width:100%;height:170px;object-fit:cover;border-radius:24px 24px 0 0;">
+          <span style="display:block;padding:16px 18px 18px;">
+            <span class="kop" style="display:block;font-family:'Tan Meringue',Georgia,serif;font-size:26px;line-height:1.1;color:#1a0b18;margin-bottom:4px;">Fietsvakanties</span>
+            <span class="txt" style="display:block;font-family:Montserrat,Arial,sans-serif;font-size:14px;line-height:1.5;color:#5c4d5a;">Van Den Bosch naar Parijs, Berlijn of Londen. Samen onderweg.</span>
+          </span>
+        </a>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- ===== AFSLUITER ===== -->
+  <tr><td class="pad" align="center" style="padding:20px 20px 8px;">
+    <p class="kop" style="margin:0 0 6px;font-family:'Tan Meringue',Georgia,serif;font-size:30px;line-height:1.1;color:#1a0b18;">Tot snel op de fiets!</p>
+    <p class="txt" style="margin:0;font-family:Montserrat,Arial,sans-serif;font-size:15px;line-height:1.6;color:#5c4d5a;">Team Velo Vital</p>
+  </td></tr>
+
+  <!-- ===== VOET ===== -->
+  <tr><td class="pad" style="padding:24px 20px 8px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#8000FF;border-radius:30px;">
+      <tr><td align="center" style="padding:26px 24px 24px;">
+        <p class="kop" style="margin:0 0 8px;font-family:'Tan Meringue',Georgia,serif;font-size:24px;line-height:1;color:#ffffff;">Velo <span style="color:#FF8C23;">Vital</span></p>
+        <p class="txt" style="margin:0 0 14px;font-family:Montserrat,Arial,sans-serif;font-size:13px;line-height:1.6;color:#ffffff;">Fietscommunity voor vrouwen. Begonnen in Den Bosch en we breiden<br>langzaam uit naar andere Brabantse steden. Samen bewegen, samen groeien.</p>
+        <p class="txt" style="margin:0;font-family:Montserrat,Arial,sans-serif;font-size:12px;line-height:1.7;color:#e6d4ff;">
+          <a href="https://velovital.nl" style="color:#ffffff;text-decoration:underline;">velovital.nl</a> &middot;
+          <a href="mailto:info@velovital.nl" style="color:#ffffff;text-decoration:underline;">info@velovital.nl</a> &middot;
+          <a href="https://velovital.nl/privacy" style="color:#ffffff;text-decoration:underline;">Privacy</a><br>
+          Stichting Velo Vital &middot; KvK 60618167
+        </p>
+      </td></tr>
+    </table>
+  </td></tr>
+  <tr><td class="pad" align="center" style="padding:12px 20px 30px;">
+    <p class="txt" style="margin:0;font-family:Montserrat,Arial,sans-serif;font-size:12px;line-height:1.6;color:#8a7d88;">Je krijgt deze mail omdat je je hebt aangemeld via Join the ride op velovital.nl.<br>
+    <a href="{$unsubscribe}" style="color:#8a7d88;text-decoration:underline;">Afmelden voor deze mails</a></p>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
